@@ -19,10 +19,16 @@
 .footer-logo-link {
     display: inline-block;
     line-height: 0;
-    /* Removes extra space below SVG */
 }
 
-.footer-logo-icon {
+/* Приховуємо десктопне лого за замовчуванням */
+.footer-logo-default {
+    display: none;
+}
+
+/* Показуємо мобільне лого за замовчуванням */
+.footer-logo-mobile {
+    display: block;
     width: 84px;
     height: 36px;
 }
@@ -90,9 +96,16 @@
         margin: 0 326px 32px;
     }
 
-    .footer-logo-icon {
+    /* Показуємо десктопне лого для планшету */
+    .footer-logo-default {
+        display: block;
         width: 116px;
         height: 45px;
+    }
+
+    /* Ховаємо мобільне лого для планшету */
+    .footer-logo-mobile {
+        display: none;
     }
 
     .footer-nav {
