@@ -2,22 +2,55 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vanilla App Template</title>
-    <link rel="stylesheet" href="./css/styles.css" />
+    <meta
+      name="description"
+      content="ArtistsHub connects music lovers with artists. Discover new music, explore genres, and share feedback."
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/3.0.1/modern-normalize.min.css"
+      integrity="sha512-q6WgHqiHlKyOqslT/lgBgodhd03Wp4BEqKeW6nNtlOY4quzyG3VoQKFrieaCeSnuVseNKRGpGeDU3qPmabCANg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./css/main.css" />
+
+    <title>ArtistsHub</title>
   </head>
+
+  <!-- Ганна Пономаренко -->
+  <load src="./partials/header.html" />
   <body>
-    <load src="./partials/header.html" icon-path="img/sprite.svg#logo" />
+    <!-- Іванна Курач -->
+    <load src="./partials/hero.html" />
 
-    <main>
-      <!-- Loads the specified .html file -->
-      <load src="./partials/vite-promo.html" />
-      <load src="./partials/badges.html" />
-    </main>
+    <!-- Михайло Пилипів -->
+    <load src="./partials/artists.html" />
 
+    <!-- Ілля Черниш -->
+    <load src="./partials/about.html" />
+
+    <!-- Яна Авраменко -->
+    <load src="./partials/feedback.html" />
+
+    <!-- Тарас Перерва -->
     <load src="./partials/footer.html" />
 
-    <script type="module" src="./main.js"></script>
+    <!-- Анна Таранова -->
+    <load src="./partials/mobile-menu.html" />
+
+    <!-- Владислав Кузьменко -->
+    <load src="./partials/modal.html" />
+
+    <script type="module" src="/main.js"></script>
   </body>
 </html>
