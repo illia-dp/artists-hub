@@ -22,7 +22,7 @@ margin-bottom: 64px;
 font-family: var(--second-family);
 font-weight: 700;
 font-size: 48px;
-line-height: 110%;
+line-height: 1.1;
 letter-spacing: -0.01em;
 color: var(--color-scheme-1-text);
 padding-top: 64px;
@@ -32,7 +32,7 @@ margin-bottom: 20px;
 font-family: var(--font-family);
 font-weight: 400;
 font-size: 18px;
-line-height: 150%;
+line-height: 1.5;
 color: var(--color-scheme-1-text);
 margin-bottom: 24px;
 }
@@ -52,7 +52,7 @@ background: var(--color-affair);
 font-family: var(--font-family);
 font-weight: 500;
 font-size: 18px;
-line-height: 150%;
+line-height: 1.5;
 color: var(--color-white);
 text-decoration: none;
 }
@@ -92,7 +92,7 @@ background: linear-gradient(180deg, rgba(35, 19, 43, 0) 0%, #060307 100%);
 pointer-events: none;
 }
 
-@media screen and (min-width: 768px) and (max-width: 1439px) {
+@media screen and (min-width: 768px) {
     .hero-section .container {
       display: flex;
       flex-direction: column;
