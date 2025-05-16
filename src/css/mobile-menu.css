@@ -53,7 +53,7 @@
     align-items: center;
     width: 320px;
     height: 51px;
-    padding-left: 24px;
+    padding-left: 20px;
     padding-right: 20px;
     margin-bottom: 52px;
   }
@@ -70,7 +70,9 @@
     padding: 0;
     margin: 0;
   }
-
+.icon-mobi {
+  fill: var(--color-affair);
+}
   .mobile-menu li {
     padding-bottom: 32px;
   }
