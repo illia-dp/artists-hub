@@ -1,5 +1,5 @@
-import { createArtistsMarkup } from '../artists/create-markup-artists';
-import { getArtists } from '../artists/artists-api';
+import { createArtistsMarkup } from './create-markup-artists';
+import { getArtists } from './artists-api';
 import iziToast from 'izitoast';
 
 async function showArtistsOnPage() {
