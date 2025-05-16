@@ -18,7 +18,7 @@
 }
 
 .header-logo {
-  fill: #764191;
+  fill: var(--color-affair);
 }
 
 .header-nav {
