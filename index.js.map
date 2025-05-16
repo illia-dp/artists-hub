@@ -1,1 +1,1 @@
-{"version":3,"file":"index.js","sources":[],"sourcesContent":[],"names":[],"mappings":""}
+{"version":3,"file":"index.js","sources":["../src/js/mobile-menu/mobile-menu.js"],"sourcesContent":["/* Mobile menu open */\ndocument.querySelectorAll('.js-mobile-menu').forEach(btn => {\n    btn.addEventListener('click', () => {\n      document.querySelector('.mobile-menu').classList.toggle('is-open');\n    });\n  });"],"names":["btn"],"mappings":"ssBACA,SAAS,iBAAiB,iBAAiB,EAAE,QAAQA,GAAO,CACxDA,EAAI,iBAAiB,QAAS,IAAM,CAClC,SAAS,cAAc,cAAc,EAAE,UAAU,OAAO,SAAS,CACvE,CAAK,CACL,CAAG"}
