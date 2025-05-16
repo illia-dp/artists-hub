@@ -68,6 +68,7 @@ text-decoration: none;
   outline: none;
 }
 .hero-btn-svg {
+  fill: var(--color1, #fff)
 }
 .hero-img-wrapper{
 position: relative;
