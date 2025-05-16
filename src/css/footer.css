@@ -24,6 +24,7 @@
 /* Приховуємо десктопне лого за замовчуванням */
 .footer-logo-default {
     display: none;
+    fill: #764191;
 }
 
 /* Показуємо мобільне лого за замовчуванням */
@@ -31,6 +32,7 @@
     display: block;
     width: 84px;
     height: 36px;
+    fill: #764191;
 }
 
 .footer-nav {
