@@ -2,7 +2,11 @@
   <div class="container">
     <div class="footer-content">
       <div class="footer-logo">
-        <a href="./index.html" class="footer-logo-link">
+        <a
+          href="./index.html"
+          aria-label="link to main page"
+          class="footer-logo-link"
+        >
           <!-- Лого для десктопу/планшету -->
           <svg class="footer-logo-icon footer-logo-default">
             <use href="../img/sprite.svg#icon-logo-lilac"></use>
@@ -13,30 +17,61 @@
           </svg>
         </a>
       </div>
-
+      <!-- Навігація футер -->
       <nav class="footer-nav">
-        <a href="#" class="footer-nav-link">Artists</a>
-        <a href="#" class="footer-nav-link">About us</a>
-        <a href="#" class="footer-nav-link">Reviews</a>
+        <a
+          href="#artists"
+          aria-label="link to section artists"
+          class="footer-nav-link"
+          >Artists</a
+        >
+        <a
+          href="#about"
+          aria-label="link to section about us"
+          class="footer-nav-link"
+          >About us</a
+        >
+        <a
+          href="#reviews"
+          aria-label="link to section reviews"
+          class="footer-nav-link"
+          >Reviews</a
+        >
       </nav>
-
+      <!-- Line -->
       <div class="footer-divider"></div>
-
+      <!-- Footer bottom -->
       <div class="footer-bottom">
+        <!-- Copyright -->
         <p class="footer-copyright">© 2025 ArtistsHub. All rights reserved.</p>
-
+        <!-- Social footer -->
         <div class="footer-social">
-          <a href="https://www.instagram.com/" class="footer-social-link">
+          <a
+            href="https://www.instagram.com/"
+            target="_blank"
+            aria-label="link to instagram"
+            class="footer-social-link"
+          >
             <svg class="footer-social-icon">
-              <use href="../img/sprite.svg#icon-Instagram"></use>
+              <use href="../img/sprite.svg#icon-Instagram-new"></use>
             </svg>
           </a>
-          <a href="https://www.facebook.com/" class="footer-social-link">
+          <a
+            href="https://www.facebook.com/"
+            target="_blank"
+            aria-label="link to facebook"
+            class="footer-social-link"
+          >
             <svg class="footer-social-icon">
               <use href="../img/sprite.svg#icon-Facebook"></use>
             </svg>
           </a>
-          <a href="https://www.youtube.com/" class="footer-social-link">
+          <a
+            href="https://www.youtube.com/"
+            target="_blank"
+            aria-label="link to youtube"
+            class="footer-social-link"
+          >
             <svg class="footer-social-icon">
               <use href="../img/sprite.svg#icon-Youtube"></use>
             </svg>
