@@ -93,7 +93,7 @@
     }
 
     .footer-logo {
-        margin: 0 326px 32px;
+        margin: 0 auto 32px;
     }
 
     /* Показуємо десктопне лого для планшету */
@@ -144,9 +144,9 @@
         padding: 80px 0;
     }
 
-    .footer-logo {
+    /* .footer-logo {
         margin: 0 662px 32px;
-    }
+    } */
 
     .footer-social-icon {
         width: 24px;
