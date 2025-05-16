@@ -1,0 +1,146 @@
+.modal {
+    padding: 64px 16px;
+    background: rgba(0, 0, 0, 0.25);
+}
+
+.art-modal {
+    position: relative;
+    background-color: #060307;
+    color: #fff;
+    padding: 52px 8px;
+    border-radius: 16px;
+    max-width: 288px;
+    overflow-y: auto;
+  }
+
+.modal-close-btn {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+}
+  
+  /* Назва артиста */
+  .art-modal-name {
+    font-family: "Epilogue", sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    text-align: center;
+    color: #fff;
+    margin-bottom: 16px;
+  }
+  
+  /* Фото артиста */
+  .art-modal-img {
+    width: 100%;
+    border-radius: 16px;
+    margin-bottom: 32px;
+    /* object-fit: cover; */
+  }
+  
+  /* Підзаголовки секцій */
+  .art-modal-live,
+  .art-modal-sex,
+  .art-modal-members,
+  .art-modal-country,
+  .art-modal-biography {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 1.5;
+    color: #fff;
+    margin-bottom: 16px;
+  }
+  
+  .art-modal-live span,
+  .art-modal-sex span,
+  .art-modal-members span,
+  .art-modal-country span,
+  .art-modal-biography span {
+    font-weight: 400;
+  }
+  
+  /* Стилі тегів жанру */
+  .art-modal-geners {
+    margin-bottom: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  
+  .art-modal-gener {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    padding: 4px 10px;
+    background: rgba(255, 255, 255, 0);
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #fff;
+    text-align: center;
+  }
+  
+  /* Заголовок альбомів */
+  .art-modal-albums-title {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    color: #fff;
+    margin-bottom: 16px;
+  }
+  
+  /* Альбомні картки */
+  .art-modal-albums-card {
+    margin-bottom: 32px;
+    border-radius: 16px;
+    padding: 14px 11px;
+    background: #1e1c1f;
+  }
+  
+  /* Назва альбому */
+  .art-modal-albums-card-title {
+    margin-bottom: 12px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #fff;
+  }
+  
+  /* Заголовки колонок треків */
+  .art-modal-albums-card-names {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 600;
+    font-size: 8px;
+    line-height: 1.5;
+    color: #fff;
+    border-radius: 8px;
+    padding: 4px 14px 4px 12px;
+    background: rgba(255, 255, 255, 0.05);
+  }
+  
+  /* Трек-рядки */
+  .art-modal-albums-card-block .art-modal-albums-card-item {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    align-items: center;
+
+    border-radius: 8px;
+    padding: 8px 11px 8px 12px;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.5;
+    color: #fff;
+  }
+  
+  .art-modal-albums-card-block .art-modal-albums-card-item:nth-child(even) {
+    background: rgba(255, 255, 255, 0.1);
+  }
+  
+  /* Іконка YouTube */
+  .art-modal-albums-card-item a {
+
+  }
+  
