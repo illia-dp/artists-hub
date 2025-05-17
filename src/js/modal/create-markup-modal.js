@@ -20,7 +20,7 @@ export function createArtist(arr, genres) {
   const markup = `
             <button class="modal-close-btn" type="button">
               <svg class="close-icon" width="32" height="32">
-                <use href="./img/sprite.svg#icon-Close"></use>
+                <use href="/img/sprite.svg#icon-Close"></use>
               </svg>
             </button>
             <h2 class="art-modal-name">${strArtist}</h2>
@@ -104,7 +104,7 @@ function createSongsList(songs, name) {
       const youtubeLink = movie?.startsWith('http')
         ? `<a href="${movie}" target="_blank">
                <svg class="close-icon" width="24" height="25">
-                 <use href="./img/sprite.svg#icon-Youtube"></use>
+                 <use href="/img/sprite.svg#icon-Youtube"></use>
                </svg>
              </a>`
         : '';
