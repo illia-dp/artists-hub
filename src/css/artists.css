@@ -96,7 +96,6 @@
   border-radius: 12px;
   padding: 10px 24px;
   width: 288px;
-  height: 47px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -160,6 +159,10 @@
   .artists-box-img {
     height: 432px;
   }
+
+  .load-more {
+    width: 340px;
+  }
 }
 
 /* Styles for Desktop devices */
@@ -185,5 +188,9 @@
 
   .artists-box-img {
     height: 393px;
+  }
+
+  .load-more {
+    width: 170px;
   }
 }
