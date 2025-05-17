@@ -5,7 +5,7 @@ import axios from 'axios';
 
 const artistModal = document.querySelector('.art-modal');
 const modalBackdrop = document.querySelector('.backdrop');
-const loader = document.querySelector('.loader');
+const loader = document.querySelector('.modal-loader');
 
 document.addEventListener('DOMContentLoaded', () => {
   const artistsList = document.querySelector('.artists-list');
@@ -32,6 +32,7 @@ async function showArtist(event) {
 
   try {
     const genres = Array.from(artistCard.querySelectorAll('.artists-box-genres .artists-genre')).map(el => el.textContent);
+
     showLoader();
 
     const artistData = await getImagesByQuery(artistId);
