@@ -40,7 +40,7 @@ export function createArtistsMarkup(arr) {
               >
                 Learn More
                 <svg class="icon-caret-right" width="24" height="24">
-                  <use href="/img/sprite.svg#icon-caret-right"></use>
+                  <use href="/artists-hub/assets/sprite-c2qr3u0C.svg#icon-caret-right"></use>
                 </svg>
               </button>
             </div>
