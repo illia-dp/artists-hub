@@ -348,7 +348,6 @@
   }
 
   .art-modal-albums-card {
-    /* flex-basis: calc((100% - 96px) / 4); */
     max-width: 272px;
   }
 
