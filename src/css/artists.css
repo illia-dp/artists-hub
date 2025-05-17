@@ -83,20 +83,13 @@
 }
 
 .artists-learn-more-btn {
-  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
   font-weight: 500;
   font-size: 18px;
   line-height: 1.5;
   color: var(--color-white);
-}
-.artists-learn-more-btn::after {
-  position: absolute;
-  top: -3;
-  right: -30px;
-  content: '';
-  width: 24px;
-  height: 25px;
-  background-image: url(../img/artists/arrow-right.svg);
 }
 
 .load-more {
@@ -104,6 +97,10 @@
   padding: 10px 24px;
   width: 288px;
   height: 47px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
 
   box-shadow: 0 1px 2px 0 var(--opacity-neutral-darkest-5),
     inset 0 -2px 1px 0 rgba(0, 0, 0, 0.2),
@@ -119,7 +116,6 @@
   color: var(--color-white);
 
   transition: background-color 0.3s ease;
-  display: block;
   margin: 0 auto;
 }
 
