@@ -1,18 +1,60 @@
-import { createArtistsMarkup } from './create-markup-artists';
-import { getArtists } from './artists-api';
+import {
+  createArtistsMarkup,
+  hideLoader,
+  hideLoadMoreButton,
+  showLoader,
+  showLoadMoreButton,
+  btnLoadMoreElem,
+} from './create-markup-artists';
+import { getArtists, getCurrentPage, setCurrentPage } from './artists-api';
 import iziToast from 'izitoast';
 
-async function showArtistsOnPage() {
-  const artistList = await getArtists();
+let totalArtists = 0;
 
-  if (artistList.artists.length === 0) {
+async function showArtistsOnPage() {
+  try {
+    showLoader();
+    const data = await getArtists();
+    totalArtists = data.totalArtists;
+
+    if (data.artists.length === 0) {
+      iziToast.warning({
+        message: 'Sorry, but no artists were found',
+        position: 'center',
+      });
+    }
+
+    createArtistsMarkup(data.artists);
+
+    showLoadMoreButton();
+  } catch (error) {
     iziToast.warning({
       message: 'Sorry, but no artists were found',
       position: 'center',
     });
+  } finally {
+    hideLoader();
   }
-
-  createArtistsMarkup(artistList.artists);
 }
 
 showArtistsOnPage();
+
+btnLoadMoreElem.addEventListener('click', async () => {
+  const page = getCurrentPage();
+  setCurrentPage(page + 1);
+
+  let maxPage = Math.ceil(totalArtists / page);
+
+  if (page >= maxPage) {
+    hideLoadMoreButton();
+    return;
+  }
+
+  hideLoadMoreButton();
+  showLoader();
+
+  await showArtistsOnPage();
+  hideLoader();
+});
+
+//---------------------------------------------------------------
