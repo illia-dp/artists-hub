@@ -24,9 +24,9 @@
 
     <title>ArtistsHub</title>
     <script type="module" crossorigin src="/artists-hub/index.js"></script>
-    <link rel="modulepreload" crossorigin href="/artists-hub/assets/vendor-DSJL_ovD.js">
-    <link rel="stylesheet" crossorigin href="/artists-hub/assets/vendor-DnveWo0P.css">
-    <link rel="stylesheet" crossorigin href="/artists-hub/assets/index-BI7vnc10.css">
+    <link rel="modulepreload" crossorigin href="/artists-hub/assets/vendor-DZInknBW.js">
+    <link rel="stylesheet" crossorigin href="/artists-hub/assets/vendor-BW32Mu2n.css">
+    <link rel="stylesheet" crossorigin href="/artists-hub/assets/index-Bk2OgVEP.css">
   </head>
 
   <!-- Ганна Пономаренко -->
@@ -178,7 +178,73 @@
 
 
     <!-- Яна Авраменко -->
-    
+    <section class="feedback-section">
+  <div class="feedback-container">
+    <h2 class="visually-hidden">Users feedback</h2>
+
+    <div class="loader-backdrop is-hidden">
+      <div class="loader"></div>
+    </div>
+
+    <div
+      class="splide feedback-slider-splide"
+      role="region"
+      aria-label="Users feedback"
+    >
+      <div class="splide__track">
+        <ul class="splide__list feedback-list-splide"></ul>
+      </div>
+
+      <div class="splide__arrows">
+        <button
+          class="splide__arrow splide__arrow--prev feedback-splide-button feedback-splide-button--prev"
+          type="button"
+          aria-label="Previous feedback"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="25"
+            viewBox="0 0 24 25"
+            fill="none"
+          >
+            <path
+              d="M12.7069 17.6655L8.41394 13.3725H17.9999V11.3725H8.41394L12.7069 7.07953L11.2929 5.66553L4.58594 12.3725L11.2929 19.0795L12.7069 17.6655Z"
+              fill="white"
+            />
+          </svg>
+        </button>
+        <button
+          class="splide__arrow splide__arrow--next feedback-splide-button feedback-splide-button--next"
+          type="button"
+          aria-label="Next feedback"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="25"
+            viewBox="0 0 24 25"
+            fill="none"
+          >
+            <path
+              d="M11.293 17.6655L12.707 19.0795L19.414 12.3725L12.707 5.66553L11.293 7.07953L15.586 11.3725H6V13.3725H15.586L11.293 17.6655Z"
+              fill="white"
+            />
+          </svg>
+        </button>
+      </div>
+
+      <ul class="splide__pagination feedback-splide-pagination"></ul>
+    </div>
+    <p class="no-feedback-message is-hidden" id="noFeedbackMessage">
+      There is no feedbacks yet.
+    </p>
+    <p class="error-feedback-message is-hidden" id="errorFeedbackMessage">
+      Failed to load feedbacks. Please try again later.
+    </p>
+  </div>
+</section>
+
 
     <!-- Тарас Перерва -->
     <footer class="footer">
