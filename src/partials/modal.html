@@ -1,13 +1,19 @@
-<div class="backdrop is-open">
-  <div class="modal">
-    <div class="art-modal">
-      <button class="modal-close-btn" type="button">
-        <svg class="close-icon" width="32" height="32">
-          <use href="./img/sprite.svg#icon-Close"></use>
-        </svg>
-      </button>
-    </div>
-  </div>
-</div>
-
-<script type="module" src="/js/modal.js"></script>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Artists</title>
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body>
+    <section class="artist-modal">
+      <div class="loader" hidden></div>
+      <div class="backdrop hidden">
+        <div class="modal">
+          <div class="art-modal"></div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
