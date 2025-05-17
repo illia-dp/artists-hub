@@ -35,6 +35,7 @@
   align-items: center;
   justify-content: center;
   z-index: 1000;
+  padding: 64px 16px;
 }
 
 .backdrop.is-visible {
@@ -44,11 +45,8 @@
 
 .modal {
   max-height: 100%;
-  /* max-width: ; */
-  padding: 64px 16px;
   background: rgba(0, 0, 0, 0.25);
-  /* overflow-y: auto;
-  scrollbar-width: none; */
+  
 }
 
 .art-modal {
@@ -217,7 +215,7 @@
 
 /* Styles for Tablet devices */
 @media screen and (min-width: 768px) {
-  .modal {
+  .backdrop {
     padding: 64px 32px;
   }
 
@@ -319,7 +317,7 @@
 /* Styles for Desktop devices */
 
 @media screen and (min-width: 1440px) {
-  .modal {
+  .backdrop {
     padding: 64px;
   }
 
@@ -350,7 +348,6 @@
   }
 
   .art-modal-albums-card {
-    /* flex-basis: calc((100% - 96px) / 4); */
     max-width: 272px;
   }
 
