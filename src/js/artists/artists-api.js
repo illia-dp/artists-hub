@@ -2,11 +2,20 @@ import axios from 'axios';
 import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 
-export const imagesOnPage = 8;
+const imagesOnPage = 8;
+let currentPage = 1;
+
+export function getCurrentPage() {
+  return currentPage;
+}
+
+export function setCurrentPage(newPage) {
+  currentPage = newPage;
+}
 
 export async function getArtists(
   endpoint = 'artists',
-  params = { limit: imagesOnPage }
+  params = { limit: imagesOnPage, page: currentPage }
 ) {
   const BASE_URL = 'https://sound-wave.b.goit.study/api/';
   const url = `${BASE_URL}${endpoint}`;
