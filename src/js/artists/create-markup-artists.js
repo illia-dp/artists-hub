@@ -1,4 +1,5 @@
 export const loaderElem = document.querySelector('.loader');
+export const btnLoadMoreElem = document.querySelector('.js-load-more');
 
 export function createArtistsMarkup(arr) {
   const markup = arr
@@ -52,4 +53,12 @@ export function showLoader() {
 
 export function hideLoader() {
   loaderElem.classList.add('hidden');
+}
+
+export function showLoadMoreButton() {
+  btnLoadMoreElem.classList.remove('hidden');
+}
+
+export function hideLoadMoreButton() {
+  btnLoadMoreElem.classList.add('hidden');
 }
