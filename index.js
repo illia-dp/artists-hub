@@ -39,7 +39,7 @@ import{a as k,i as g,S as F}from"./assets/vendor-DZInknBW.js";(function(){const 
         `}function R(a){if(l){try{l.destroy()}catch{}l=null}if(t&&a!==0){t.querySelector('[data-glide-el="controls[nav]"]')||t.querySelector(".splide__pagination");try{l=new F(t,{type:"slide",perPage:1,arrows:!!r,pagination:!!s,drag:!0,keyboard:"global"}),l.on("mounted",()=>{}),l.on("move",(u,i,m)=>{}),l.mount(),window.myTestSplide=l}catch{}}}async function N(){var a,u;v(),y("clear");try{const i=await k.get(c);if(!i.data||typeof i.data!="object"||!Array.isArray(i.data.data))throw new Error("Incorrect data type from server.");let m=i.data.data;if(m.length===0){y("no-feedback","There is no feedbacks yet."),b();return}y("success");const d=m.slice(0,f);if(o)o.innerHTML=d.map(O).join("");else throw new Error("Show error: there is no .splide__list.");R(d.length)}catch(i){const m=((u=(a=i.response)==null?void 0:a.data)==null?void 0:u.message)||i.message||"Unknown error.";y("error",`Error: ${m}`),h(`Failed to fetch or display feedbacks: ${m}`,"error")}finally{b()}}t&&o?N():n&&b()});document.addEventListener("DOMContentLoaded",()=>{function e(){const t=document.querySelector(".js-mobile-menu"),o=document.querySelector(".js-mobile-close-menu"),r=document.querySelector(".mobile-menu"),s=document.querySelector(".menu-mobile-overlay"),n=document.querySelectorAll('.mobile-menu a[href^="#"]');if(!t||!o||!r||!s){console.error("One or more mobile menu elements not found. Ensure selectors .js-mobile-menu, .js-mobile-close-menu, .mobile-menu, and .menu-mobile-overlay exist.");return}const c=()=>{r.classList.add("is-open"),s.classList.add("is-active"),document.body.style.overflow="hidden",r.removeAttribute("inert"),r.hidden=!1},f=()=>{r.classList.remove("is-open"),s.classList.remove("is-active"),document.body.style.overflow="",r.setAttribute("inert",""),r.hidden=!0};t.addEventListener("click",c),o.addEventListener("click",f),s.addEventListener("click",f),document.addEventListener("keydown",l=>{l.key==="Escape"&&r.classList.contains("is-open")&&f()}),n.forEach(l=>{l.addEventListener("click",f)}),r.setAttribute("inert",""),r.hidden=!0}e()});const K=document.querySelector(".art-modal");function W(e,t){const{intDiedYear:o,intFormedYear:r,intMembers:s,strArtist:n,strArtistThumb:c,strBiographyEN:f,strCountry:l,strGender:v,tracksList:b}=e,h=t.map(S=>`<div class="art-modal-gener"><p>${S}</p></div>`).join(""),y=`
             <button class="modal-close-btn" type="button">
               <svg class="close-icon" width="32" height="32">
-                <use href="./img/sprite.svg#icon-Close"></use>
+                <use href="/img/sprite.svg#icon-Close"></use>
               </svg>
             </button>
             <h2 class="art-modal-name">${n}</h2>
@@ -99,7 +99,7 @@ import{a as k,i as g,S as F}from"./assets/vendor-DZInknBW.js";(function(){const 
             </div>
         </div>`).join("")}function Q(e,t){return e[t].map(({strTrack:o,intDuration:r,movie:s})=>{const n=X(r),c=s!=null&&s.startsWith("http")?`<a href="${s}" target="_blank">
                <svg class="close-icon" width="24" height="25">
-                 <use href="./img/sprite.svg#icon-Youtube"></use>
+                 <use href="/img/sprite.svg#icon-Youtube"></use>
                </svg>
              </a>`:"";return`
           <div class="art-modal-albums-card-item">
