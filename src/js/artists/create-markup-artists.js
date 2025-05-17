@@ -1,3 +1,5 @@
+import photo from '../../img/artists/file-not-found.jpg';
+
 export const loaderElem = document.querySelector('.loader');
 export const btnLoadMoreElem = document.querySelector('.js-load-more');
 
@@ -19,7 +21,7 @@ export function createArtistsMarkup(arr) {
             <div class="artists-box-img">
               <img
                 data-id="${_id}"
-                src="${strArtistThumb}"
+                src="${strArtistThumb ?? photo}"
                 alt="${strArtist}"
                 class="artists-img"
                 loading="lazy"
