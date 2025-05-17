@@ -22,6 +22,9 @@ export function createArtistsMarkup(arr) {
                 src="${strArtistThumb}"
                 alt="${strArtist}"
                 class="artists-img"
+                loading="lazy"
+                width="704" 
+                height="432"
               />
             </div>
 
@@ -37,7 +40,7 @@ export function createArtistsMarkup(arr) {
               >
                 Learn More
                 <svg class="icon-caret-right" width="24" height="24">
-                  <use href="../img/sprite.svg#icon-caret-right"></use>
+                  <use href="/img/sprite.svg#icon-caret-right"></use>
                 </svg>
               </button>
             </div>

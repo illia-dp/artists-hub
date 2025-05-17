@@ -26,6 +26,14 @@ async function showArtistsOnPage() {
 
     createArtistsMarkup(data.artists);
 
+    const page = getCurrentPage();
+    let maxPage = Math.ceil(totalArtists / page);
+
+    if (page === maxPage) {
+      hideLoadMoreButton();
+      return;
+    }
+
     showLoadMoreButton();
   } catch (error) {
     iziToast.warning({
@@ -43,14 +51,6 @@ btnLoadMoreElem.addEventListener('click', async () => {
   const page = getCurrentPage();
   setCurrentPage(page + 1);
 
-  let maxPage = Math.ceil(totalArtists / page);
-
-  if (page >= maxPage) {
-    hideLoadMoreButton();
-    return;
-  }
-
-  hideLoadMoreButton();
   showLoader();
 
   await showArtistsOnPage();
