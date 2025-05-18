@@ -30,7 +30,6 @@ async function showArtistsOnPage() {
     createArtistsMarkup(data.artists);
     liElem = document.querySelector('.artists-item');
     heightScroll = liElem.getBoundingClientRect().height;
-    console.log(heightScroll);
 
     const page = getCurrentPage();
     let maxPage = Math.ceil(totalArtists / page);
