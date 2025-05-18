@@ -1,11 +1,9 @@
 /* Mobile styles */
-.header {
-  background-color: var(--color-scheme-1-background);
-}
 
 .page-header .container {
   display: flex;
   align-items: center;
+  background-color: var(--color-scheme-1-background);
 }
 
 .header-nav {
@@ -60,6 +58,12 @@
     font-size: 18px;
     line-height: 1.5;
     color: var(--color-scheme-1-text);
+  }
+
+  .header-nav-link:hover,
+  .header-nav-link:focus {
+    color: var(--color-neutral-lighter);
+    transition: var(--animation);
   }
 }
 /* Desktop styles */
