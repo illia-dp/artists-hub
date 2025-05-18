@@ -1,6 +1,6 @@
 import photo from '../../img/artists/file-not-found.jpg';
 
-export const loaderElem = document.querySelector('.loader');
+export const loaderElem = document.querySelector('.artists-loader');
 export const btnLoadMoreElem = document.querySelector('.js-load-more');
 
 export function createArtistsMarkup(arr) {

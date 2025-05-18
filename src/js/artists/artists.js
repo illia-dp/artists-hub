@@ -48,6 +48,7 @@ async function showArtistsOnPage() {
 showArtistsOnPage();
 
 btnLoadMoreElem.addEventListener('click', async () => {
+  hideLoadMoreButton();
   const page = getCurrentPage();
   setCurrentPage(page + 1);
 
