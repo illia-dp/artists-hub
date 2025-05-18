@@ -1,11 +1,9 @@
 /* Mobile styles */
-.header {
-  background-color: var(--color-scheme-1-background);
-}
 
 .page-header .container {
   display: flex;
   align-items: center;
+  background-color: var(--color-scheme-1-background);
 }
 
 .header-nav {
