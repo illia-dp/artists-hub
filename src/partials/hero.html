@@ -7,19 +7,41 @@
         <svg class="hero-btn-svg" width="24" height="24">
           <use href="/img/sprite.svg#icon-right-arrow"></use>
         </svg>
-    </a>
-</div>
+      </a>
+    </div>
 
-<div class="hero-img-wrapper">
-    <div class="hero-img-overlay">
+    <div class="hero-img-wrapper">
+      <div class="hero-img-overlay">
         <picture>
-            <source media="(min-width: 1440px)" srcset="/img/hero-img/hero-desktop-min.png 1x, /img/hero-img/hero-desktop@2x-min.png 2x">
-            <source media="(min-width: 768px)" srcset="/img/hero-img/hero-tablet-min.png 1x, /img/hero-img/hero-tablet@2x-min.png 2x">
-            <source media="(max-width: 767px)" srcset="/img/hero-img/hero-mob-min.png 1x, /img/hero-img/hero-mob@2x-min.png 2x">
-            <img src="/img/hero-img/hero-desktop-min.png" alt="artists" class="hero-bg-image" loading="lazy">
+          <source
+            media="(min-width: 1440px)"
+            srcset="
+              /img/hero-img/hero-desktop-min.webp    1x,
+              /img/hero-img/hero-desktop@2x-min.webp 2x
+            "
+          />
+          <source
+            media="(min-width: 768px)"
+            srcset="
+              /img/hero-img/hero-tablet-min.webp    1x,
+              /img/hero-img/hero-tablet@2x-min.webp 2x
+            "
+          />
+          <source
+            media="(max-width: 767px)"
+            srcset="
+              /img/hero-img/hero-mob-min.webp    1x,
+              /img/hero-img/hero-mob@2x-min.webp 2x
+            "
+          />
+          <img
+            class="hero-bg-image"
+            src="/img/hero-img/hero-desktop-min.webp"
+            alt="artists"
+            loading="lazy"
+          />
         </picture>
-</div>
-</div>
-
-</div>
+      </div>
+    </div>
+  </div>
 </section>
