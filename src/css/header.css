@@ -61,6 +61,12 @@
     line-height: 1.5;
     color: var(--color-scheme-1-text);
   }
+
+  .header-nav-link:hover,
+  .header-nav-link:focus {
+    color: var(--color-neutral-lighter);
+    transition: var();
+  }
 }
 /* Desktop styles */
 @media screen and (min-width: 1440px) {
