@@ -1,15 +1,20 @@
-<section class="feedback-section">
+<section class="feedback-section" id="reviews">
   <div class="feedback-container">
-    <h2 class="visually-hidden">Users feedback</h2>
+    <h2 class="visually-hidden">Users reviews</h2>
 
-    <div class="loader-backdrop is-hidden">
+    <div
+      class="loader-backdrop is-hidden"
+      role="status"
+      aria-live="polite"
+      aria-busy="false"
+    >
       <div class="loader"></div>
     </div>
 
     <div
       class="splide feedback-slider-splide"
       role="region"
-      aria-label="Users feedback"
+      aria-label="Users reviews"
     >
       <div class="splide__track">
         <ul class="splide__list feedback-list-splide"></ul>
@@ -19,7 +24,7 @@
         <button
           class="splide__arrow splide__arrow--prev feedback-splide-button feedback-splide-button--prev"
           type="button"
-          aria-label="Previous feedback"
+          aria-label="Previous review"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -37,7 +42,7 @@
         <button
           class="splide__arrow splide__arrow--next feedback-splide-button feedback-splide-button--next"
           type="button"
-          aria-label="Next feedback"
+          aria-label="Next review"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -56,11 +61,99 @@
 
       <ul class="splide__pagination feedback-splide-pagination"></ul>
     </div>
-    <p class="no-feedback-message is-hidden" id="noFeedbackMessage">
+
+    <div class="add-feedback-button-container">
+      <button
+        type="button"
+        class="add-feedback-btn"
+        id="addFeedbackBtn"
+        aria-haspopup="dialog"
+      >
+        Leave feedback
+      </button>
+    </div>
+
+    <p
+      class="no-feedback-message is-hidden"
+      id="noFeedbackMessage"
+      role="status"
+      aria-live="polite"
+    >
       There is no feedbacks yet.
     </p>
-    <p class="error-feedback-message is-hidden" id="errorFeedbackMessage">
-      Failed to load feedbacks. Please try again later.
+    <p
+      class="error-feedback-message is-hidden"
+      id="errorFeedbackMessage"
+      role="status"
+      aria-live="polite"
+    >
+      Unable to download feedbacks. Please try again later.
     </p>
   </div>
 </section>
+
+<div class="feedback-modal-backdrop is-hidden" id="feedbackModalBackdrop">
+  <div
+    class="feedback-modal"
+    id="feedbackModal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="feedbackModalTitle"
+  >
+    <button
+      class="feedback-modal__close-btn"
+      id="feedbackModalCloseBtn"
+      type="button"
+      aria-label="Close modal window"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="18"
+        height="18"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+      >
+        <path
+          d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+        />
+      </svg>
+    </button>
+    <h3 class="feedback-modal__title" id="feedbackModalTitle">
+      Submit feedback
+    </h3>
+    <form class="feedback-modal__form" id="feedbackForm">
+      <div class="feedback-modal__field">
+        <label for="feedbackName" class="feedback-modal__label">Name</label>
+        <input
+          type="text"
+          id="feedbackName"
+          name="name"
+          class="feedback-modal__input"
+          placeholder="Emily"
+          required
+        />
+      </div>
+      <div class="feedback-modal__field">
+        <label for="feedbackText" class="feedback-modal__label">Message</label>
+        <textarea
+          id="feedbackText"
+          name="reviewText"
+          class="feedback-modal__textarea"
+          rows="3"
+          placeholder="Type your message..."
+          required
+        ></textarea>
+      </div>
+      <div class="feedback-modal__field">
+        <div
+          class="feedback-modal__stars"
+          id="feedbackStarsContainer"
+          role="radiogroup"
+          aria-label="Feedback rating"
+        ></div>
+      </div>
+      <input type="hidden" id="feedbackRating" name="rating" value="0" />
+      <button type="submit" class="feedback-modal__submit-btn">Submit</button>
+    </form>
+  </div>
+</div>
