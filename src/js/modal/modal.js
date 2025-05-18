@@ -60,6 +60,11 @@ async function showArtist(event) {
 }
 
 function openModal() {
+  const modal = document.querySelector('.art-modal');
+  if (modal) {
+    modal.scrollTop = 0; 
+  }
+
   modalBackdrop.classList.add('is-visible');
   document.body.style.overflow = 'hidden';
 
