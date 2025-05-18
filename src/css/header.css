@@ -65,7 +65,7 @@
   .header-nav-link:hover,
   .header-nav-link:focus {
     color: var(--color-neutral-lighter);
-    transition: var();
+    transition: var(--animation);
   }
 }
 /* Desktop styles */
