@@ -64,7 +64,7 @@ text-decoration: none;
     inset 0 -2px 2px rgba(0, 0, 0, 0.3),
     inset 0 0 0 1px rgba(255, 255, 255, 0.2),
     inset 0 2px 2px rgba(255, 255, 255, 0.3);
-  transform: translateY(-1px);
+  transition: var(--animation);
   outline: none;
 }
 .hero-img-wrapper{
@@ -87,14 +87,11 @@ display: block;
 .hero-img-overlay::after {
 content: "";
 position: absolute;
-/* inset: 0;
-background: linear-gradient(180deg, rgba(35, 19, 43, 0) 0%, #060307 100%); */
 pointer-events: none;
-
 left: 0;
 right: 0;
 bottom: 0;
-height: 120px; /* Adjust as needed */
+height: 120px; 
 background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, #060307 100%);
 }
 
