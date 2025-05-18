@@ -10,6 +10,8 @@ import {
 import { getArtists, getCurrentPage, setCurrentPage } from './artists-api';
 import iziToast from 'izitoast';
 
+const searchFormElem = document.querySelector('.js-search-form');
+
 let totalArtists = 0;
 let liElem;
 let heightScroll = 0;
@@ -30,7 +32,6 @@ async function showArtistsOnPage() {
     createArtistsMarkup(data.artists);
     liElem = document.querySelector('.artists-item');
     heightScroll = liElem.getBoundingClientRect().height;
-    console.log(heightScroll);
 
     const page = getCurrentPage();
     let maxPage = Math.ceil(totalArtists / page);
@@ -66,3 +67,8 @@ btnLoadMoreElem.addEventListener('click', async () => {
 });
 
 //---------------------------------------------------------------
+searchFormElem.addEventListener('submit', e => {
+  e.preventDefault();
+  const inputData = e.target.elements.search.value.trim().toLowerCase();
+  console.log(inputData);
+});
