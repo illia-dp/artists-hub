@@ -1,9 +1,9 @@
-import{a as k,i as g,S as F}from"./assets/vendor-DZInknBW.js";(function(){const t=document.createElement("link").relList;if(t&&t.supports&&t.supports("modulepreload"))return;for(const s of document.querySelectorAll('link[rel="modulepreload"]'))r(s);new MutationObserver(s=>{for(const a of s)if(a.type==="childList")for(const c of a.addedNodes)c.tagName==="LINK"&&c.rel==="modulepreload"&&r(c)}).observe(document,{childList:!0,subtree:!0});function o(s){const a={};return s.integrity&&(a.integrity=s.integrity),s.referrerPolicy&&(a.referrerPolicy=s.referrerPolicy),s.crossOrigin==="use-credentials"?a.credentials="include":s.crossOrigin==="anonymous"?a.credentials="omit":a.credentials="same-origin",a}function r(s){if(s.ep)return;s.ep=!0;const a=o(s);fetch(s.href,a)}})();const A=document.querySelector(".loader"),M=document.querySelector(".js-load-more");function H(e){const t=e.map(({strArtist:r,strBiographyEN:s,strArtistThumb:a,_id:c,genres:f})=>{const l=f.flatMap(h=>h.split("/")).map(h=>h.trim()),b=[...new Set(l)].map(h=>`<span class="artists-genre">${h}</span>`).join("");return`
+import{a as $,i as f,S as H}from"./assets/vendor-DZInknBW.js";(function(){const t=document.createElement("link").relList;if(t&&t.supports&&t.supports("modulepreload"))return;for(const s of document.querySelectorAll('link[rel="modulepreload"]'))r(s);new MutationObserver(s=>{for(const o of s)if(o.type==="childList")for(const l of o.addedNodes)l.tagName==="LINK"&&l.rel==="modulepreload"&&r(l)}).observe(document,{childList:!0,subtree:!0});function a(s){const o={};return s.integrity&&(o.integrity=s.integrity),s.referrerPolicy&&(o.referrerPolicy=s.referrerPolicy),s.crossOrigin==="use-credentials"?o.credentials="include":s.crossOrigin==="anonymous"?o.credentials="omit":o.credentials="same-origin",o}function r(s){if(s.ep)return;s.ep=!0;const o=a(s);fetch(s.href,o)}})();const _=document.querySelector(".loader"),C=document.querySelector(".js-load-more");function G(e){const t=e.map(({strArtist:r,strBiographyEN:s,strArtistThumb:o,_id:l,genres:h})=>{const m=h.flatMap(g=>g.split("/")).map(g=>g.trim()),b=[...new Set(m)].map(g=>`<span class="artists-genre">${g}</span>`).join("");return`
         <li class="artists-item">
             <div class="artists-box-img">
               <img
-                data-id="${c}"
-                src="${a}"
+                data-id="${l}"
+                src="${o}"
                 alt="${r}"
                 class="artists-img"
                 loading="lazy"
@@ -29,29 +29,29 @@ import{a as k,i as g,S as F}from"./assets/vendor-DZInknBW.js";(function(){const 
               </button>
             </div>
           </li>
-    `}).join("");document.querySelector(".artists-list").insertAdjacentHTML("beforeend",t)}function _(){A.classList.remove("hidden")}function q(){A.classList.add("hidden")}function G(){M.classList.remove("hidden")}function z(){M.classList.add("hidden")}const U=8;let E=1;function x(){return E}function Y(e){E=e}async function V(e="artists",t={limit:U,page:E}){const r=`https://sound-wave.b.goit.study/api/${e}`;try{return(await k.get(r,{params:t})).data}catch(s){throw g.warning({message:`Request error: ${s.message}`,position:"center"}),s}}let $=0;async function B(){try{_();const e=await V();$=e.totalArtists,e.artists.length===0&&g.warning({message:"Sorry, but no artists were found",position:"center"}),H(e.artists);const t=x();let o=Math.ceil($/t);if(t===o){z();return}G()}catch{g.warning({message:"Sorry, but no artists were found",position:"center"})}finally{q()}}B();M.addEventListener("click",async()=>{const e=x();Y(e+1),_(),await B(),q()});document.addEventListener("DOMContentLoaded",()=>{const e=document.querySelector(".feedback-section");if(!e)return;const t=e.querySelector(".splide.feedback-slider-splide"),o=e.querySelector(".splide__list.feedback-list-splide"),r=e.querySelector(".splide__arrows"),s=e.querySelector(".splide__pagination.feedback-splide-pagination"),a=e.querySelector(".loader-backdrop");if(!t||!o)return;const c="https://sound-wave.b.goit.study/api/feedbacks",f=15;let l=null;function v(){a&&a.classList.remove("is-hidden")}function b(){a&&a.classList.add("is-hidden")}function h(n,u="error"){u==="error"?g.error({title:"Error",message:n,position:"topRight"}):u==="success"?g.success({title:"Success",message:n,position:"topRight"}):u==="warning"?g.warning({title:"Warning",message:n,position:"topRight"}):g.info({title:"Info",message:n,position:"topRight"})}function y(n,u=""){const i=[t];r&&i.push(r),s&&i.push(s);const m=e.querySelector(".custom-feedback-message");if(m&&m.remove(),n==="error"||n==="no-feedback"){i.forEach(p=>{p&&(p.style.display="none")});const d=e.querySelector(".feedback-container");if(d){const p=document.createElement("p");p.className="custom-feedback-message",p.style.textAlign="center",p.style.padding="20px",n==="error"?(p.style.color="red",p.textContent=u||"Error loading feedbacks."):p.textContent=u||"There are no feedbacks yet.",t&&t.parentNode===d?t.insertAdjacentElement("afterend",p):d&&d.appendChild(p)}}else i.forEach(d=>{d&&(d.style.display="")});o&&n==="clear"&&(o.innerHTML="")}function S(n){const i=parseFloat(n);if(isNaN(i)){let L="";const I='<svg class="feedback-card__star" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"/></svg>';for(let C=0;C<5;C++)L+=I;return L}const m=Math.floor(i);let d="";const p=`<svg class="feedback-card__star feedback-card__star--filled" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
+    `}).join("");document.querySelector(".artists-list").insertAdjacentHTML("beforeend",t)}function q(){_.classList.remove("hidden")}function x(){_.classList.add("hidden")}function U(){C.classList.remove("hidden")}function z(){C.classList.add("hidden")}const Y=8;let M=1;function T(){return M}function V(e){M=e}async function K(e="artists",t={limit:Y,page:M}){const r=`https://sound-wave.b.goit.study/api/${e}`;try{return(await $.get(r,{params:t})).data}catch(s){throw f.warning({message:`Request error: ${s.message}`,position:"center"}),s}}let A=0;async function B(){try{q();const e=await K();A=e.totalArtists,e.artists.length===0&&f.warning({message:"Sorry, but no artists were found",position:"center"}),G(e.artists);const t=T();let a=Math.ceil(A/t);if(t===a){z();return}U()}catch{f.warning({message:"Sorry, but no artists were found",position:"center"})}finally{x()}}B();C.addEventListener("click",async()=>{const e=T();V(e+1),q(),await B(),x()});document.addEventListener("DOMContentLoaded",()=>{const e=document.querySelector(".feedback-section");if(!e)return;const t=e.querySelector(".splide.feedback-slider-splide"),a=e.querySelector(".splide__list.feedback-list-splide"),r=e.querySelector(".splide__arrows"),s=e.querySelector(".splide__pagination.feedback-splide-pagination"),o=e.querySelector(".loader-backdrop");if(!t||!a)return;const l="https://sound-wave.b.goit.study/api/feedbacks",h=15;let m=null;function w(){o&&o.classList.remove("is-hidden")}function b(){o&&o.classList.add("is-hidden")}function g(n,d="error"){d==="error"?f.error({title:"Error",message:n,position:"topRight"}):d==="success"?f.success({title:"Success",message:n,position:"topRight"}):d==="warning"?f.warning({title:"Warning",message:n,position:"topRight"}):f.info({title:"Info",message:n,position:"topRight"})}function y(n,d=""){const i=[t];r&&i.push(r),s&&i.push(s);const u=e.querySelector(".custom-feedback-message");if(u&&u.remove(),n==="error"||n==="no-feedback"){i.forEach(p=>{p&&(p.style.display="none")});const c=e.querySelector(".feedback-container");if(c){const p=document.createElement("p");p.className="custom-feedback-message",p.style.textAlign="center",p.style.padding="20px",n==="error"?(p.style.color="red",p.textContent=d||"Error loading feedbacks."):p.textContent=d||"There are no feedbacks yet.",t&&t.parentNode===c?t.insertAdjacentElement("afterend",p):c&&c.appendChild(p)}}else i.forEach(c=>{c&&(c.style.display="")});a&&n==="clear"&&(a.innerHTML="")}function k(n){const i=parseFloat(n);if(isNaN(i)){let L="";const F='<svg class="feedback-card__star" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"/></svg>';for(let E=0;E<5;E++)L+=F;return L}const u=Math.floor(i);let c="";const p=`<svg class="feedback-card__star feedback-card__star--filled" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
 <path d="M9.07088 1.31791C9.41462 0.501451 10.5854 0.501452 10.9291 1.31791L12.9579 6.1368C13.1029 6.481 13.4306 6.71618 13.8067 6.74597L19.0727 7.16304C19.9649 7.23371 20.3267 8.3337 19.6469 8.90897L15.6348 12.3042C15.3482 12.5468 15.223 12.9273 15.3106 13.2899L16.5363 18.3666C16.744 19.2267 15.7969 19.9066 15.033 19.4457L10.5245 16.7251C10.2025 16.5308 9.7975 16.5308 9.47548 16.7251L4.96699 19.4457C4.20311 19.9066 3.25596 19.2267 3.46363 18.3666L4.68942 13.2899C4.77698 12.9273 4.65182 12.5468 4.36526 12.3042L0.353062 8.90897C-0.326718 8.3337 0.0350679 7.23371 0.927291 7.16304L6.19336 6.74597C6.5695 6.71618 6.89716 6.481 7.04207 6.1368L9.07088 1.31791Z" fill="#764191"/>
 </svg>`,D=`<svg class="feedback-card__star" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
 <path d="M9.07082 1.31791C9.41456 0.501451 10.5853 0.501452 10.9291 1.31791L12.9578 6.1368C13.1028 6.481 13.4305 6.71618 13.8066 6.74597L19.0726 7.16304C19.9648 7.23371 20.3266 8.3337 19.6468 8.90897L15.6347 12.3042C15.3482 12.5468 15.2229 12.9273 15.3105 13.2899L16.5363 18.3666C16.7439 19.2267 15.7968 19.9066 15.0329 19.4457L10.5245 16.7251C10.2024 16.5308 9.79744 16.5308 9.47542 16.7251L4.96693 19.4457C4.20305 19.9066 3.25589 19.2267 3.46357 18.3666L4.68936 13.2899C4.77692 12.9273 4.65176 12.5468 4.36519 12.3042L0.353001 8.90897C-0.326779 8.3337 0.0350068 7.23371 0.92723 7.16304L6.19329 6.74597C6.56944 6.71618 6.89709 6.481 7.04201 6.1368L9.07082 1.31791Z" fill="white"/>
-</svg>`;for(let L=0;L<5;L++)d+=L<m?p:D;return d}function O(n){const u=n.name||"Anonymous",i=n.descr||"No feedback.",m=n.rating,d=S(m);return`
+</svg>`;for(let L=0;L<5;L++)c+=L<u?p:D;return c}function N(n){const d=n.name||"Anonymous",i=n.descr||"No feedback.",u=n.rating,c=k(u);return`
             <li class="splide__slide feedback-card">
-                <div class="feedback-card__stars">${d!==void 0?d:""}</div>
+                <div class="feedback-card__stars">${c!==void 0?c:""}</div>
                 <p class="feedback-card__text">${i}</p>
-                <p class="feedback-card__author">${u}</p>
+                <p class="feedback-card__author">${d}</p>
             </li>
-        `}function R(n){if(l){try{l.destroy()}catch{}l=null}if(t&&n!==0){t.querySelector('[data-glide-el="controls[nav]"]')||t.querySelector(".splide__pagination");try{l=new F(t,{type:"slide",perPage:1,arrows:!!r,pagination:!!s,drag:!0,keyboard:"global"}),l.on("mounted",()=>{}),l.on("move",(u,i,m)=>{}),l.mount(),window.myTestSplide=l}catch{}}}async function N(){var n,u;v(),y("clear");try{const i=await k.get(c);if(!i.data||typeof i.data!="object"||!Array.isArray(i.data.data))throw new Error("Incorrect data type from server.");let m=i.data.data;if(m.length===0){y("no-feedback","There is no feedbacks yet."),b();return}y("success");const d=m.slice(0,f);if(o)o.innerHTML=d.map(O).join("");else throw new Error("Show error: there is no .splide__list.");R(d.length)}catch(i){const m=((u=(n=i.response)==null?void 0:n.data)==null?void 0:u.message)||i.message||"Unknown error.";y("error",`Error: ${m}`),h(`Failed to fetch or display feedbacks: ${m}`,"error")}finally{b()}}t&&o?N():a&&b()});document.addEventListener("DOMContentLoaded",()=>{function e(){const t=document.querySelector(".js-mobile-menu"),o=document.querySelector(".js-mobile-close-menu"),r=document.querySelector(".mobile-menu"),s=document.querySelector(".menu-mobile-overlay"),a=document.querySelectorAll('.mobile-menu a[href^="#"]');if(!t||!o||!r||!s){console.error("One or more mobile menu elements not found. Ensure selectors .js-mobile-menu, .js-mobile-close-menu, .mobile-menu, and .menu-mobile-overlay exist.");return}const c=()=>{r.classList.add("is-open"),s.classList.add("is-active"),document.body.style.overflow="hidden",r.removeAttribute("inert"),r.hidden=!1},f=()=>{r.classList.remove("is-open"),s.classList.remove("is-active"),document.body.style.overflow="",r.setAttribute("inert",""),r.hidden=!0};t.addEventListener("click",c),o.addEventListener("click",f),s.addEventListener("click",f),document.addEventListener("keydown",l=>{l.key==="Escape"&&r.classList.contains("is-open")&&f()}),a.forEach(l=>{l.addEventListener("click",f)}),r.setAttribute("inert",""),r.hidden=!0}e()});const K=document.querySelector(".art-modal");function W(e,t){const{intDiedYear:o,intFormedYear:r,intMembers:s,strArtist:a,strArtistThumb:c,strBiographyEN:f,strCountry:l,strGender:v,tracksList:b}=e,h=t.map(S=>`<div class="art-modal-gener"><p>${S}</p></div>`).join(""),y=`
+        `}function O(n){if(m){try{m.destroy()}catch{}m=null}if(t&&n!==0){t.querySelector('[data-glide-el="controls[nav]"]')||t.querySelector(".splide__pagination");try{m=new H(t,{type:"slide",perPage:1,arrows:!!r,pagination:!!s,drag:!0,keyboard:"global"}),m.on("mounted",()=>{}),m.on("move",(d,i,u)=>{}),m.mount(),window.myTestSplide=m}catch{}}}async function I(){var n,d;w(),y("clear");try{const i=await $.get(l);if(!i.data||typeof i.data!="object"||!Array.isArray(i.data.data))throw new Error("Incorrect data type from server.");let u=i.data.data;if(u.length===0){y("no-feedback","There is no feedbacks yet."),b();return}y("success");const c=u.slice(0,h);if(a)a.innerHTML=c.map(N).join("");else throw new Error("Show error: there is no .splide__list.");O(c.length)}catch(i){const u=((d=(n=i.response)==null?void 0:n.data)==null?void 0:d.message)||i.message||"Unknown error.";y("error",`Error: ${u}`),g(`Failed to fetch or display feedbacks: ${u}`,"error")}finally{b()}}t&&a?I():o&&b()});const v=document.querySelector(".mobile-menu"),W=document.querySelector(".js-mobile-menu"),Z=document.querySelector(".js-mobile-close-menu");W.onclick=()=>v.classList.add("is-open");Z.onclick=()=>v.classList.remove("is-open");document.addEventListener("keydown",e=>{e.key==="Escape"&&v.classList.remove("is-open")});v.querySelectorAll('a[href^="#"]').forEach(e=>{e.onclick=()=>v.classList.remove("is-open")});const Q=document.querySelector(".art-modal");function X(e,t){const{intDiedYear:a,intFormedYear:r,intMembers:s,strArtist:o,strArtistThumb:l,strBiographyEN:h,strCountry:m,strGender:w,tracksList:b}=e,g=t.map(k=>`<div class="art-modal-gener"><p>${k}</p></div>`).join(""),y=`
             <button class="modal-close-btn" type="button">
               <svg class="close-icon" width="32" height="32">
                 <use href="/artists-hub/assets/sprite-c2qr3u0C.svg#icon-Close"></use>
               </svg>
             </button>
-            <h2 class="art-modal-name">${a}</h2>
+            <h2 class="art-modal-name">${o}</h2>
             <div class="art-modal-wrapper">
               <div class="art-modal-wrapper-item">
                 <div class="art-modal-item-img">
                   <img
-                    src="${c}"
-                    alt="${a}"
+                    src="${l}"
+                    alt="${o}"
                     class="art-modal-img"
                   />
                 </div>
@@ -60,11 +60,11 @@ import{a as k,i as g,S as F}from"./assets/vendor-DZInknBW.js";(function(){const 
                 <div class="art-modal-titles">
                   <p class="art-modal-live">
                     Years active <br />
-                    <span>${r}-${o||"present"}</span>
+                    <span>${r}-${a||"present"}</span>
                   </p>
                   <p class="art-modal-sex">
                     Sex <br />
-                    <span>${v}</span>
+                    <span>${w}</span>
                   </p>
                   <p class="art-modal-members">
                     Members <br />
@@ -72,25 +72,25 @@ import{a as k,i as g,S as F}from"./assets/vendor-DZInknBW.js";(function(){const 
                   </p>
                   <p class="art-modal-country">
                     Country <br />
-                    <span>${l}</span>
+                    <span>${m}</span>
                   </p>
                   <p class="art-modal-biography">
                     Biography <br />
-                    <span>${f}</span>
+                    <span>${h}</span>
                   </p>
                 </div>
                 <div class="art-modal-geners">
-                   ${h}
+                   ${g}
                 </div>
               </div>
             </div>
             <div class="art-modal-albums">
               <h3 class="art-modal-albums-title">Albums</h3>
               <div class="art-modal-albums-cards">
-                ${Z(b)}
+                ${J(b)}
               </div>
               </div>
-            `;K.insertAdjacentHTML("beforeend",y)}function Z(e){const t=J(e);return Object.keys(t).map(s=>`<div class="art-modal-albums-card">
+            `;Q.insertAdjacentHTML("beforeend",y)}function J(e){const t=se(e);return Object.keys(t).map(s=>`<div class="art-modal-albums-card">
             <h4 class="art-modal-albums-card-title">${s}</h4>
             <div class="art-modal-albums-card-names">
               <p>Track</p>
@@ -98,16 +98,16 @@ import{a as k,i as g,S as F}from"./assets/vendor-DZInknBW.js";(function(){const 
               <p>Link</p>
             </div>
             <div class="art-modal-albums-card-block">
-              ${Q(t,s)}
+              ${ee(t,s)}
             </div>
-        </div>`).join("")}function Q(e,t){return e[t].map(({strTrack:o,intDuration:r,movie:s})=>{const a=X(r),c=s!=null&&s.startsWith("http")?`<a href="${s}" target="_blank">
+        </div>`).join("")}function ee(e,t){return e[t].map(({strTrack:a,intDuration:r,movie:s})=>{const o=te(r),l=s!=null&&s.startsWith("http")?`<a href="${s}" target="_blank">
                <svg class="close-icon" width="24" height="25">
                  <use href="/artists-hub/assets/sprite-c2qr3u0C.svg#icon-Youtube"></use>
                </svg>
              </a>`:"";return`
           <div class="art-modal-albums-card-item">
-            <p class="art-modal-albums-card-track">${o}</p>
-            <p class="art-modal-albums-card-duration">${a}</p>
-            <p class="art-modal-albums-card-link">${c}</p>
-          </div>`}).join("")}function X(e){const t=Math.floor(e/1e3),o=Math.floor(t/60),r=t%60;return`${o}:${r.toString().padStart(2,"0")}`}function J(e){const t={};return e.forEach(o=>{const r=o.strAlbum;t[r]||(t[r]=[]),t[r].push(o)}),t}async function ee(e){const o=`https://sound-wave.b.goit.study/api/artists/${e}`;try{return(await k.get(o)).data}catch(r){throw g.warning({message:`Request error: ${r.message}`,position:"center"}),r}}const te=document.querySelector(".art-modal"),w=document.querySelector(".backdrop"),T=document.querySelector(".modal-loader");document.addEventListener("DOMContentLoaded",()=>{const e=document.querySelector(".artists-list");e&&e.addEventListener("click",t=>{t.target.closest(".artists-learn-more-btn")&&se(t)})});async function se(e){e.preventDefault();const o=e.target.closest(".artists-learn-more-btn").closest(".artists-item"),r=o.querySelector(".artists-img"),s=r==null?void 0:r.dataset.id;if(s)try{const a=Array.from(o.querySelectorAll(".artists-box-genres .artists-genre")).map(f=>f.textContent);oe();const c=await ee(s);if(ae(),!c||!c.strArtist){g.warning({message:"Sorry, but no artist was found",position:"center"});return}te.innerHTML="",W(c,a),re()}catch{g.error({message:"Failed to load artist data",position:"center"})}}function re(){w.classList.add("is-visible"),document.body.style.overflow="hidden",window.addEventListener("keydown",j)}function P(){w.classList.remove("is-visible"),document.body.style.overflow="",window.removeEventListener("keydown",j)}function j(e){e.key==="Escape"&&P()}w.addEventListener("click",e=>{(e.target===w||e.target.closest(".modal-close-btn"))&&P()});function oe(){T.hidden=!1}function ae(){T.hidden=!0}
+            <p class="art-modal-albums-card-track">${a}</p>
+            <p class="art-modal-albums-card-duration">${o}</p>
+            <p class="art-modal-albums-card-link">${l}</p>
+          </div>`}).join("")}function te(e){const t=Math.floor(e/1e3),a=Math.floor(t/60),r=t%60;return`${a}:${r.toString().padStart(2,"0")}`}function se(e){const t={};return e.forEach(a=>{const r=a.strAlbum;t[r]||(t[r]=[]),t[r].push(a)}),t}async function re(e){const a=`https://sound-wave.b.goit.study/api/artists/${e}`;try{return(await $.get(a)).data}catch(r){throw f.warning({message:`Request error: ${r.message}`,position:"center"}),r}}const ae=document.querySelector(".art-modal"),S=document.querySelector(".backdrop"),P=document.querySelector(".modal-loader");document.addEventListener("DOMContentLoaded",()=>{const e=document.querySelector(".artists-list");e&&e.addEventListener("click",t=>{t.target.closest(".artists-learn-more-btn")&&oe(t)})});async function oe(e){e.preventDefault();const a=e.target.closest(".artists-learn-more-btn").closest(".artists-item"),r=a.querySelector(".artists-img"),s=r==null?void 0:r.dataset.id;if(s)try{const o=Array.from(a.querySelectorAll(".artists-box-genres .artists-genre")).map(h=>h.textContent);ie();const l=await re(s);if(ce(),!l||!l.strArtist){f.warning({message:"Sorry, but no artist was found",position:"center"});return}ae.innerHTML="",X(l,o),ne()}catch{f.error({message:"Failed to load artist data",position:"center"})}}function ne(){S.classList.add("is-visible"),document.body.style.overflow="hidden",window.addEventListener("keydown",R)}function j(){S.classList.remove("is-visible"),document.body.style.overflow="",window.removeEventListener("keydown",R)}function R(e){e.key==="Escape"&&j()}S.addEventListener("click",e=>{(e.target===S||e.target.closest(".modal-close-btn"))&&j()});function ie(){P.hidden=!1}function ce(){P.hidden=!0}
 //# sourceMappingURL=index.js.map
