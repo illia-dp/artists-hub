@@ -1,4 +1,6 @@
-export const loaderElem = document.querySelector('.loader');
+import photo from '../../img/artists/file-not-found.jpg';
+
+export const loaderElem = document.querySelector('.artists-loader');
 export const btnLoadMoreElem = document.querySelector('.js-load-more');
 
 export function createArtistsMarkup(arr) {
@@ -19,7 +21,7 @@ export function createArtistsMarkup(arr) {
             <div class="artists-box-img">
               <img
                 data-id="${_id}"
-                src="${strArtistThumb}"
+                src="${strArtistThumb ?? photo}"
                 alt="${strArtist}"
                 class="artists-img"
                 loading="lazy"
@@ -40,7 +42,7 @@ export function createArtistsMarkup(arr) {
               >
                 Learn More
                 <svg class="icon-caret-right" width="24" height="24">
-                  <use href="/img/sprite.svg#icon-caret-right"></use>
+                  <use href="/artists-hub/assets/sprite-c2qr3u0C.svg#icon-caret-right"></use>
                 </svg>
               </button>
             </div>
@@ -69,4 +71,12 @@ export function showLoadMoreButton() {
 
 export function hideLoadMoreButton() {
   btnLoadMoreElem.classList.add('hidden');
+}
+
+export function scrollWin(x, y) {
+  window.scrollBy({
+    top: y,
+    left: x,
+    behavior: 'smooth',
+  });
 }

@@ -5,11 +5,14 @@ import {
   showLoader,
   showLoadMoreButton,
   btnLoadMoreElem,
+  scrollWin,
 } from './create-markup-artists';
 import { getArtists, getCurrentPage, setCurrentPage } from './artists-api';
 import iziToast from 'izitoast';
 
 let totalArtists = 0;
+let liElem;
+let heightScroll = 0;
 
 async function showArtistsOnPage() {
   try {
@@ -25,6 +28,8 @@ async function showArtistsOnPage() {
     }
 
     createArtistsMarkup(data.artists);
+    liElem = document.querySelector('.artists-item');
+    heightScroll = liElem.getBoundingClientRect().height;
 
     const page = getCurrentPage();
     let maxPage = Math.ceil(totalArtists / page);
@@ -48,6 +53,7 @@ async function showArtistsOnPage() {
 showArtistsOnPage();
 
 btnLoadMoreElem.addEventListener('click', async () => {
+  hideLoadMoreButton();
   const page = getCurrentPage();
   setCurrentPage(page + 1);
 
@@ -55,6 +61,7 @@ btnLoadMoreElem.addEventListener('click', async () => {
 
   await showArtistsOnPage();
   hideLoader();
+  scrollWin(0, heightScroll);
 });
 
 //---------------------------------------------------------------
