@@ -1,6 +1,3 @@
-// Hero
-import './js/hero/hero.js';
-
 // Artists
 import './js/artists/artists.js';
 
