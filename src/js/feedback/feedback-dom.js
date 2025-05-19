@@ -27,7 +27,7 @@ export function createFeedbackCardHTML(feedback) {
 
   return `
     <li class="splide__slide feedback-card">
-        <div class="feedback-card__stars" aria-label="Rating: ${ratingFromAPI} з 5">${starsRenderedHTML}</div>
+        <div class="feedback-card__stars" role="img" aria-label="Rating: ${ratingFromAPI} з 5">${starsRenderedHTML}</div>
         <p class="feedback-card__text">${reviewText}</p>
         <p class="feedback-card__author">${authorName}</p>
     </li>`;
