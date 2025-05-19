@@ -1,10 +1,10 @@
 .feedback-section {
     padding: 64px 16px;
   }
+
   .feedback-container {
     margin-left: auto;
-    margin-right: auto;
-    max-width: 288px;
+    margin-right: auto; 
     position: relative;
   }
   .visually-hidden {
@@ -265,7 +265,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #060307;
+    background-color: rgba(0, 0, 0, 0.55); 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -432,10 +432,7 @@
     background-color: #4a4a4a;
     cursor: not-allowed;
   }
-  
-  .feedback-container {
-    max-width: 288px;
-  }
+   
   .feedback-card {
     min-height: 210px;
     width: 100%;
@@ -445,12 +442,7 @@
   }
   
   @media screen and (min-width: 768px) {
-    .feedback-section {
-      padding: 64px 32px;
-    }
-    .feedback-container {
-      max-width: 704px;
-    }
+     
     .feedback-card {
       min-height: 254px;
       padding: 24px 20px;
@@ -482,9 +474,7 @@
       padding: 0;
       margin-top: 26px;
     }
-    .feedback-modal-backdrop {
-      background-color: rgba(0, 0, 0, 0.55);
-    }
+    
     .feedback-modal {
       width: 704px;
       height: 688px;
@@ -511,12 +501,7 @@
   }
   
   @media screen and (min-width: 1440px) {
-    .feedback-section {
-      padding: 112px 64px;
-    }
-    .feedback-container {
-      max-width: 1312px;
-    }
+     
     .feedback-card {
       min-height: 354px;
       padding: 30px 24px;
