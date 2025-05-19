@@ -20,32 +20,39 @@ let liElem;
 let heightScroll = 0;
 let inputData = '';
 let currentPage = 1;
+let currentOption = '';
+let data;
 
+// the main function for getting and rendering artists
 async function showArtistsOnPage() {
-  let data;
   try {
     showLoader();
     if (!inputData) {
-      data = await getArtists();
+      data = await getArtists(); // all
+    } else if (!currentOption) {
+      data = await getArtists(inputData); // without sorting
     } else {
-      data = await getArtists(inputData);
+      data = await getArtists(inputData, currentOption); // with sorting
     }
 
     if (data.artists.length === 0) {
       searchFormElem.reset();
       iziToast.warning({
-        message: 'Sorry, but no artists were found',
+        message: 'Sorry, but no artist was found for your query',
         position: 'center',
       });
+      inputData = '';
       data = await getArtists();
     }
 
+    //for pagination
     totalArtists = data.totalArtists;
     limit = data.limit;
     maxPage = Math.ceil(totalArtists / limit);
 
     createArtistsMarkup(data.artists);
 
+    //don't show button if the last page
     if (currentPage === maxPage) {
       return;
     } else {
@@ -60,18 +67,15 @@ async function showArtistsOnPage() {
     hideLoader();
   }
 }
-
+// start page loading
 showArtistsOnPage();
 
 //-------------------  LOAD MORE -----------------------------
 
 btnLoadMoreElem.addEventListener('click', async () => {
   if (currentPage === maxPage) {
-    console.log('ok');
     hideLoadMoreButton();
     return;
-  } else {
-    showLoadMoreButton();
   }
 
   hideLoadMoreButton();
@@ -83,13 +87,18 @@ btnLoadMoreElem.addEventListener('click', async () => {
 
   await showArtistsOnPage();
   hideLoader();
-  scrollWin(0, heightScroll);
+  scrollWin(0, heightScroll); //Scroll down
 });
 
 //-------------------SEARCH BY NAME--------------------------
 searchFormElem.addEventListener('submit', async event => {
-  hideLoadMoreButton();
   event.preventDefault();
+  hideLoadMoreButton();
+  setCurrentPage(1);
+  currentPage = 1;
+
+  currentOption = getSelectedSortOption();
+
   inputData = event.target.elements.search.value.trim().toLowerCase();
   if (!inputData) {
     iziToast.warning({
@@ -102,3 +111,9 @@ searchFormElem.addEventListener('submit', async event => {
   showArtistsOnPage();
   searchFormElem.reset();
 });
+
+//---------------------------------------------------------------
+function getSelectedSortOption() {
+  const selectedOption = document.querySelector('input[name="sort"]:checked');
+  return selectedOption?.value || '';
+}

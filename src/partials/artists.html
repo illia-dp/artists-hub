@@ -4,10 +4,38 @@
     <h3 class="artists-subtitle">Explore Your New Favorite Artists</h3>
     <div class="artists-bar"></div>
 
-    <form class="search-form js-search-form hidden">
-      <label for="search">
-        <input id="search" type="text" name="search" />
-      </label>
+    <form class="search-form js-search-form">
+      <label for="search">Filters</label>
+      <input id="search" type="text" name="search" />
+
+      <div class="artists-options-box">
+        <p>Sorting</p>
+        <label>
+          Default
+          <input type="radio" name="sort" id="default" value="" />
+        </label>
+        <label>
+          A-Z
+          <input
+            class="js-option-abc"
+            type="radio"
+            name="sort"
+            id="abc"
+            value="asc"
+          />
+        </label>
+        <label>
+          Z-A
+          <input
+            class="js-option-zyx"
+            type="radio"
+            name="sort"
+            id="zyx"
+            value="desc"
+          />
+        </label>
+      </div>
+
       <button type="submit" style="background-color: #999; margin-bottom: 40px">
         Search
       </button>
