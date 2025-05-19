@@ -6,9 +6,8 @@
   background-color: var(--color-scheme-1-background);
 }
 
-.header-nav-item {
-  padding-top: 7px;
-  padding-bottom: 7px;
+.burger-btn {
+  padding: 12px;
 }
 
 .header-nav-list {
@@ -28,13 +27,13 @@
 
 /* Tablet styles */
 @media screen and (min-width: 768px) {
-  .burger-btn {
-    display: none;
+  .page-header .container {
+    padding-left: 64px;
+    padding-right: 64px;
   }
 
-  .header-nav {
-    padding-top: 11px;
-    padding-bottom: 11px;
+  .burger-btn {
+    display: none;
   }
 
   .header-nav-list {
@@ -58,6 +57,8 @@
     font-size: 18px;
     line-height: 1.5;
     color: var(--color-scheme-1-text);
+    padding-top: 12px;
+    padding-bottom: 12px;
   }
 
   .header-nav-link:hover,
