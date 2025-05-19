@@ -31,7 +31,9 @@ async function showArtist(event) {
   if (!artistId) return;
 
   try {
-    const genres = Array.from(artistCard.querySelectorAll('.artists-box-genres .artists-genre')).map(el => el.textContent);
+    const genres = Array.from(
+      artistCard.querySelectorAll('.artists-box-genres .artists-genre')
+    ).map(el => el.textContent);
 
     showLoader();
 
@@ -60,6 +62,11 @@ async function showArtist(event) {
 }
 
 function openModal() {
+  const modal = document.querySelector('.art-modal');
+  if (modal) {
+    modal.scrollTop = 0;
+  }
+
   modalBackdrop.classList.add('is-visible');
   document.body.style.overflow = 'hidden';
 

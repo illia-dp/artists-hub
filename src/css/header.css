@@ -6,7 +6,7 @@
   background-color: var(--color-scheme-1-background);
 }
 
-.header-nav {
+.header-nav-item {
   padding-top: 7px;
   padding-bottom: 7px;
 }
