@@ -211,6 +211,7 @@
 
 .art-modal-albums-card-track {
   width: 113px;
+  align-self: center;
 }
 
 .art-modal-albums-card-duration {
@@ -221,6 +222,7 @@
 .art-modal-albums-card-link {
   width: 40px;
   text-align: end;
+  transform: translateY(5%);
 }
 
 /* Styles for Tablet devices */
