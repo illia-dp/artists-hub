@@ -95,6 +95,19 @@
     height: 40px;
 }
 
+/* Анімація іконок соціальних мереж */
+
+.footer-social-link {
+    display: inline-block;
+    transition: transform 0.3s ease, scale 0.3s ease;
+}
+
+.footer-social-link:hover,
+.footer-social-link:focus {
+    transform: scale(1.2) rotate(5deg); }
+        /* fill: var(--color-affair); */
+        
+
 /* Tablet Styles */
 @media screen and (min-width: 768px) {
     .footer {
