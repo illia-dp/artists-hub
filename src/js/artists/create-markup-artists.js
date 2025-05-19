@@ -2,6 +2,7 @@ import photo from '../../img/artists/file-not-found.jpg';
 
 export const loaderElem = document.querySelector('.artists-loader');
 export const btnLoadMoreElem = document.querySelector('.js-load-more');
+export let artistsList = document.querySelector('.artists-list');
 
 export function createArtistsMarkup(arr) {
   const markup = arr
@@ -50,8 +51,6 @@ export function createArtistsMarkup(arr) {
     `;
     })
     .join('');
-
-  const artistsList = document.querySelector('.artists-list');
 
   artistsList.insertAdjacentHTML('beforeend', markup);
 }

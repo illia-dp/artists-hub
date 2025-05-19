@@ -8,20 +8,16 @@ let currentPage = 1;
 export function getCurrentPage() {
   return currentPage;
 }
-
 export function setCurrentPage(newPage) {
   currentPage = newPage;
 }
 
-export async function getArtists(
-  endpoint = 'artists',
-  params = { limit: imagesOnPage, page: currentPage }
-) {
-  const BASE_URL = 'https://sound-wave.b.goit.study/api/';
-  const url = `${BASE_URL}${endpoint}`;
-
+export async function getArtists(artistName) {
+  const BASE_URL = 'https://sound-wave.b.goit.study/api/artists';
   try {
-    const response = await axios.get(url, { params });
+    const response = await axios.get(BASE_URL, {
+      params: { limit: imagesOnPage, page: currentPage, name: artistName },
+    });
     return response.data;
   } catch (error) {
     iziToast.warning({
@@ -31,3 +27,5 @@ export async function getArtists(
     throw error;
   }
 }
+
+//---------------------------------------------------------------
