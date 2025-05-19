@@ -1,3 +1,27 @@
+@font-face {
+    font-family: 'IBMPlexSans';
+    src: url(../fonts/IBMPlexSans-VariableFont_wdth\,wght.woff2) format('woff2');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Epilogue';
+    src: url(../fonts/Epilogue-VariableFont_wght.woff2) format('woff2');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url(../fonts/Roboto-VariableFont_wdth\,wght.woff2) format('woff2');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
 :root {
     --color-scheme-1-background: var(--color-neutral-darkest);
     --color-neutral-darkest: #060307;
@@ -72,6 +96,7 @@ html {
 
 body {
     font-family: var(--font-family);
+    background-color: var(--color-scheme-1-background);
 }
 
 .visually-hidden {
