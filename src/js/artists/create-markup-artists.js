@@ -2,6 +2,7 @@ import photo from '../../img/artists/file-not-found.jpg';
 
 export const loaderElem = document.querySelector('.artists-loader');
 export const btnLoadMoreElem = document.querySelector('.js-load-more');
+export let artistsList = document.querySelector('.artists-list');
 
 export function createArtistsMarkup(arr) {
   const markup = arr
@@ -51,8 +52,6 @@ export function createArtistsMarkup(arr) {
     })
     .join('');
 
-  const artistsList = document.querySelector('.artists-list');
-
   artistsList.insertAdjacentHTML('beforeend', markup);
 }
 
@@ -60,19 +59,15 @@ export function createArtistsMarkup(arr) {
 export function showLoader() {
   loaderElem.classList.remove('hidden');
 }
-
 export function hideLoader() {
   loaderElem.classList.add('hidden');
 }
-
 export function showLoadMoreButton() {
   btnLoadMoreElem.classList.remove('hidden');
 }
-
 export function hideLoadMoreButton() {
   btnLoadMoreElem.classList.add('hidden');
 }
-
 export function scrollWin(x, y) {
   window.scrollBy({
     top: y,

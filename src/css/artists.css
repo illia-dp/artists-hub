@@ -137,10 +137,8 @@
   font-size: 18px;
   line-height: 150%;
   color: var(--color-white);
-
   transition: background-color 0.3s ease;
   margin: 0 auto;
-  transition: all 200ms ease-in-out;
 }
 .load-more:hover,
 .load-more:focus {
@@ -193,6 +191,7 @@
   }
 
   .artists-box-img {
+    width: 640px;
     height: 432px;
   }
 
