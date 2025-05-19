@@ -5,7 +5,7 @@ import {
   artistsList,
   scrollToArtistsList,
 } from './create-markup-artists';
-import { getArtists, getCurrentPage, setCurrentPage } from './artists-api';
+import { getArtists, setCurrentPage } from './artists-api';
 import { initPagination, resetPagination } from './pagination';
 import iziToast from 'izitoast';
 
