@@ -59,11 +59,6 @@
     border: none;
 }
 
-.tui-first,
-.tui-last {
-    display: none !important;
-}
-
 .tui-pagination .tui-first-child.tui-is-selected {
     border-left: none;
 }
@@ -76,10 +71,5 @@
 
 .tui-first,
 .tui-last {
-    display: none;
-}
-
-.tui-page-btn .tui-first,
-.tui-page-btn .tui-last {
-    display: none;
+    display: none !important;
 }
