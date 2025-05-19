@@ -40,6 +40,7 @@
   flex-wrap: wrap;
   justify-content: center;
   row-gap: 64px;
+  margin-bottom: 64px;
 }
 .artists-box-img {
   border-radius: 16px;
