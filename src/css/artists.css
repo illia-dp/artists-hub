@@ -103,6 +103,17 @@
   font-size: 18px;
   line-height: 1.5;
   color: var(--color-white);
+
+  transition: all 200ms ease-in-out;
+}
+
+.artists-learn-more-btn:hover,
+.artists-learn-more-btn:focus {
+  opacity: 0.6;
+}
+
+.icon-caret-right {
+  fill: currentColor;
 }
 
 .load-more {
@@ -126,21 +137,27 @@
   font-size: 18px;
   line-height: 150%;
   color: var(--color-white);
-
   transition: background-color 0.3s ease;
   margin: 0 auto;
+}
+.load-more:hover,
+.load-more:focus {
+  background: #6f4d89;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3), inset 0 -2px 2px rgba(0, 0, 0, 0.3),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.2),
+    inset 0 2px 2px rgba(255, 255, 255, 0.3);
+  transform: translateY(-1px);
+  outline: none;
 }
 
 /* -------------loader----------- */
 
-.loader {
-  width: 48px;
-  height: 48px;
-  border: 5px solid #fff;
-  border-bottom-color: #ff3d00;
+.artists-loader {
+  width: 60px;
+  height: 60px;
+  border: 6px solid #fff;
+  border-top-color: #333;
   border-radius: 50%;
-  display: block;
-  box-sizing: border-box;
   animation: rotation 1s linear infinite;
   margin: 0 auto;
 }
@@ -174,6 +191,7 @@
   }
 
   .artists-box-img {
+    width: 640px;
     height: 432px;
   }
 

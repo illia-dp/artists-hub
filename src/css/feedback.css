@@ -1,344 +1,582 @@
 body {
-  background-color: #060307;
-}
-
-.feedback-section {
-  padding: 64px 16px;
-}
-.feedback-container {
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 288px;
-  height: 210px;
-  position: relative;
-}
-.visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  border: 0;
-  padding: 0;
-  white-space: nowrap;
-  clip-path: inset(100%);
-  clip: rect(0 0 0 0);
-  overflow: hidden;
-}
-
-/* --- Лоадер --- */
-.loader-backdrop {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(255, 255, 255, 0.85);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 100;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
-}
-
-.loader-backdrop.is-hidden {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-}
-
-.loader {
-  border: 5px solid #e0e0e0;
-  border-top: 5px solid #ffc107;
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  animation: spin 0.8s linear infinite;
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
+    background-color: #060307;
+    font-family: 'Epilogue', 'Open Sans', sans-serif;
   }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-/* --- Стилі для Splide.js --- */
-.feedback-slider-splide {  
-  position: relative;
-  /* За замовчуванням Splide ховає неактивні слайди, overflow: hidden на .splide__track */
-}
-
-/* .splide__track та .splide__list - керуються Splide */
-.feedback-list-splide {
-  /* Наш кастомний клас для ul.splide__list */
-  padding: 0;
-  margin: 0;
-  list-style: none;
-}
-
-/* .splide__slide - стандартний клас для li, до нього додаємо наш .feedback-card */
-.feedback-card {
-  box-sizing: border-box;
-  background-color: #060307;
-  /* border: 1px solid #e0e0e0;
-    border-radius: 12px; */
-  padding: 20px 16px;
-  display: flex; /* Важливо для правильного відображення в Splide */
-  gap: 32px;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-   
-}
-
-.feedback-card__stars {
-   
-  display: flex;
-  gap: 4px;
-  margin-bottom: 15px;
-}
-.feedback-card__star {
-  width: 20px;  
-  height: 19px;  
-  fill: #ffffff;
-}
-
-.feedback-card__star--filled {
-  fill: #764191;
-}
-.feedback-card__text {
-  align-self: stretch;
-  color: var(--Color-Scheme-1-Text, #fff);
-  text-align: center;
-  font-family: Epilogue;
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 140%;  
-  letter-spacing: -0.18px;
-}
-.feedback-card__author {
-  color: var(--Color-Scheme-1-Text, #fff); 
-  font-family: 'IBM Plex Sans';
-  font-size: 18px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 150%;  
-}
-
-/* --- Кнопки навігації Splide --- */
-/* .splide__arrows - стандартний контейнер */
-/*.splide__arrows {}
-     Можна не стилізувати, якщо стандартне позиціонування підходить */
-
-.feedback-splide-button {
-  /* Наш кастомний клас для кнопок */
-  position: absolute;
-  top: calc(50% - 14px); /* По центру висоти картки*/
-  transform: translateY(-50%);
-  width: 48px;
-  height: 48px;
-  background-color: #060307;
-  border-radius: 8px;
-  border: 1px solid var(--Opacity-White-50, rgba(255, 255, 255, 0.5));
-  z-index: 5;
-  cursor: pointer;
-  transition: background-color 0.2s ease, box-shadow 0.2s ease,
-    opacity 0.2s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.feedback-splide-button svg {
-  /* Стилізація SVG всередині наших кнопок */
-  width: 24px;
-  height: 24px;
-  fill: #333333;
-}
-
-.feedback-splide-button:hover {
-  border: 1px solid var(--Opacity-Neutral-Darkest-15, rgba(6, 3, 7, 0.15));
-  background: var(--Color-Scheme-2-Foreground, #1e1c1f);
-}
-
-/* Splide додає атрибут disabled до неактивних кнопок */
-.feedback-splide-button:disabled,
-.splide__arrow:disabled {
   
-  opacity: 0.5;
-  cursor: not-allowed;
-  pointer-events: none; /* Важливо */
-  box-shadow: none;
-}
-
-.feedback-splide-button--prev {
-  /* Наш кастомний клас */
-  left: 0; /* Позиція буде налаштована в медіа-запитах */
-}
- 
-
-.feedback-splide-button--next {
-  /* Наш кастомний клас */
-  right: 0; /* Позиція буде налаштована в медіа-запитах */
-}
- 
-
-/* --- Пагінація Splide (точки) --- */
-/* .splide__pagination - стандартний контейнер (ul) */
-.feedback-splide-pagination {
-  /* Наш кастомний клас для ul */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;   
-  margin-top: 16px;
-  padding-left: 0; /* Скидаємо відступ ul */
-  list-style: none;  
-}
-
-/* Splide генерує <li><button class="splide__pagination__page"></button></li> */
-/* .feedback-splide-pagination li {} /* Стилізуємо li, якщо потрібно */
-/* display: inline-block; */ /* Зазвичай не потрібно, flex на ul вже є */
-
-.feedback-splide-pagination .splide__pagination__page {
-  /* Стандартний клас для кнопки-точки */
-  width: 8px;
-  height: 8px;
-  background-color: #ffffff36;
-  border-radius: 50%;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-  box-shadow: none;
-  margin: 0; /* Скидаємо margin кнопки, gap на ul вже є */
-  opacity: 1; /* Splide може керувати opacity, але для перестраховки */
-}
-
-.feedback-splide-pagination .splide__pagination__page:hover {
-  background-color: #b0b0b0;
-}
-
-.feedback-splide-pagination .splide__pagination__page.is-active {
-  /* Клас для активної точки в Splide */
-  background-color: #ffffff;
-  transform: scale(1.2);
-}
-.feedback-splide-pagination .splide__pagination__page.is-active:hover {
-  background-color: #ffffff;
-}
-
-/* --- Повідомлення (як раніше) --- */
-.no-feedback-message,
-.error-feedback-message {
-  text-align: center;
-  padding: 20px;
-  font-size: 16px;
-  color: #555555;
-}
-.is-hidden {
-  display: none !important;
-}
-
-/* --- Адаптивність --- */
-/* Мобільний (320px) */
-.feedback-container {
-  max-width: 288px;
-}
-.feedback-card {
-  min-height: 210px;
-  width: 100%; /* Splide сам керує шириною слайда */
-}
-/* Кнопки навігації Splide на мобілці (за замовчуванням приховані, якщо так потрібно) */
-.feedback-splide-button {
-  display: none;
-} /* Приховуємо наші кастомні кнопки */
-/* Або,  стандартні стрілки Splide, їх можна сховати так: */
-/* .splide__arrows { display: none; } */
-
-/* Планшет (min-width: 768px) */
-@media screen and (min-width: 768px) {
   .feedback-section {
-    padding: 64px 32px;
+    padding: 64px 16px;
   }
   .feedback-container {
-    max-width: 704px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 288px;
+    position: relative;
   }
-  .feedback-card {
-    min-height: 254px;
-    padding: 24px 20px;
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
   }
-  .feedback-splide-button {
+  
+  .loader-backdrop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(6, 3, 7, 0.85);
     display: flex;
-    top: calc(254px / 2);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
   }
-  .feedback-splide-button--prev {
-    left: 10px;
+  
+  .loader-backdrop.is-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
   }
-  .feedback-splide-button--next {
-    right: 10px;
+  
+  .loader {
+    border: 5px solid #444;
+    border-top: 5px solid #764191;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 0.8s linear infinite;
   }
-  /* .splide__arrow--prev { left: 10px; } */ /* Якщо стилізувати стандартні */
-  /* .splide__arrow--next { right: 10px; } */
-  .feedback-splide-pagination .splide__pagination__page {
-    width: 10px;
-    height: 10px;
+  
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .feedback-slider-splide {
+    position: relative;
+  }
+  
+  .feedback-list-splide {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+  
+  .feedback-card {
+    box-sizing: border-box;
+    background-color: #060307;
+    padding: 20px 16px;
+    display: flex;
+    gap: 32px;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  }
+  
+  .feedback-card__stars {
+    display: flex;
+    gap: 4px;
+  }
+  .feedback-card__star {
+    width: 20px;
+    height: 19px;
+    fill: #ffffff;
+  }
+  
+  .feedback-card__star--filled {
+    fill: #764191;
+  }
+  .feedback-card__star path[fill='white'] {
+    fill: #ffffff;
+  }
+  .feedback-card__star--filled path {
+    fill: #764191 !important;
   }
   .feedback-card__text {
-    max-width: 518px;
-    align-items: center;
-    align-self: center;
-      
- 
-    font-size: 26px; 
-    letter-spacing: -0.26px;
-  } 
-}
-
-/* Десктоп (min-width: 1440px) */
-@media screen and (min-width: 1440px) {
-  .feedback-section {
-    padding: 112px 64px;
+    align-self: stretch;
+    color: var(--Color-Scheme-1-Text, #fff);
+    text-align: center;
+    font-family: 'Epilogue', 'Open Sans', sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 140%;
+    letter-spacing: -0.18px;
+    margin-bottom: 10px;
   }
+  .feedback-card__author {
+    color: var(--Color-Scheme-1-Text, #fff);
+    font-family: 'IBM Plex Sans', 'Open Sans', sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%;
+  }
+  
+  .feedback-splide-button {
+    position: absolute;
+    top: calc(50% - 14px);
+    transform: translateY(-50%);
+    width: 48px;
+    height: 48px;
+    background-color: #060307;
+    border-radius: 8px;
+    border: 1px solid var(--Opacity-White-50, rgba(255, 255, 255, 0.5));
+    z-index: 5;
+    cursor: pointer;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease,
+      opacity 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .feedback-splide-button svg {
+    width: 24px;
+    height: 24px;
+    fill: #333333;
+  }
+  
+  .feedback-splide-button:hover {
+    border: 1px solid var(--Opacity-Neutral-Darkest-15, rgba(6, 3, 7, 0.15));
+    background: var(--Color-Scheme-2-Foreground, #1e1c1f);
+  }
+  
+  .feedback-splide-button:disabled,
+  .splide__arrow:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+    box-shadow: none;
+  }
+  
+  .feedback-splide-button--prev {
+    left: 0;
+  }
+  
+  .feedback-splide-button--next {
+    right: 0;
+  }
+  
+  .feedback-splide-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-top: 16px;
+    padding-left: 0;
+    list-style: none;
+  }
+  
+  .feedback-splide-pagination .splide__pagination__page {
+    width: 8px;
+    height: 8px;
+    background-color: #ffffff36;
+    border-radius: 50%;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: none;
+    margin: 0;
+    opacity: 1;
+  }
+  
+  .feedback-splide-pagination .splide__pagination__page:hover {
+    background-color: #b0b0b0;
+  }
+  
+  .feedback-splide-pagination .splide__pagination__page.is-active {
+    background-color: #ffffff;
+    transform: scale(1.2);
+  }
+  .feedback-splide-pagination .splide__pagination__page.is-active:hover {
+    background-color: #ffffff;
+  }
+  
+  .add-feedback-button-container {
+    text-align: center;
+    margin-top: 16px;
+  }
+  
+  .add-feedback-btn {
+    margin: 0 auto;
+    display: flex;
+    background-color: #764191;
+    width: 100%;
+    height: 47px;
+    color: var(--Color-White, #fff);
+    font-family: 'IBM Plex Sans', 'Open Sans', sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%;
+    border: none;
+    padding: 10px 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0px 32px 24px 0px rgba(255, 255, 255, 0.05) inset,
+      0px 2px 1px 0px rgba(255, 255, 255, 0.25) inset,
+      0px 0px 0px 1px var(--Opacity-Neutral-Darkest-15, rgba(6, 3, 7, 0.15)) inset,
+      0px -2px 1px 0px rgba(0, 0, 0, 0.2) inset,
+      0px 1px 2px 0px var(--Opacity-Neutral-Darkest-5, rgba(6, 3, 7, 0.05));
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .add-feedback-btn:hover,
+  .add-feedback-btn:focus {
+    background: #6f4d89;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3), inset 0 -2px 2px rgba(0, 0, 0, 0.3),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.2),
+      inset 0 2px 2px rgba(255, 255, 255, 0.3);
+    transform: translateY(-1px);
+    outline: none;
+  }
+  
+  .no-feedback-message,
+  .error-feedback-message {
+    text-align: center;
+    padding: 20px;
+    font-size: 16px;
+    color: #ccc;
+  }
+  .is-hidden {
+    display: none !important;
+  }
+  .custom-feedback-message.error {
+    color: #ff6b6b;
+  }
+  
+  .feedback-modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #060307;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1050;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+  
+  .feedback-modal-backdrop:not(.is-hidden) {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .feedback-modal {
+    border-radius: var(--Radius-Large, 16px);
+    background: var(--Color-Scheme-1-Background, #060307);
+    color: #fff;
+    padding: 64px 16px;
+    width: 320px;
+    height: auto;
+    max-height: 90vh;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+  }
+  
+  .feedback-modal__close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: #aaa;
+    cursor: pointer;
+    padding: 5px;
+    line-height: 1;
+  }
+  .feedback-modal__close-btn svg {
+    width: 24px;
+    height: 24px;
+    fill: #fff;
+  }
+  .feedback-modal__close-btn:hover svg {
+    fill: #aaa;
+  }
+  
+  .feedback-modal__title {
+    color: var(--Color-Scheme-1-Text, #fff);
+    text-align: center;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 130%;
+    letter-spacing: -0.24px;
+    font-family: 'Epilogue', 'Open Sans', sans-serif;
+    margin-bottom: 15px;
+  }
+  
+  .feedback-modal__form {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+  
+  .feedback-modal__field {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .feedback-modal__label {
+    color: var(--Color-Scheme-1-Text, #fff);
+    font-family: 'IBM Plex Sans';
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    margin-bottom: 10px;
+  }
+  
+  .feedback-modal__input,
+  .feedback-modal__textarea {
+    border-radius: 12px;
+    border: 1px solid var(--Opacity-White-20, rgba(255, 255, 255, 0.2));
+    background: var(--Opacity-Transparent, rgba(255, 255, 255, 0));
+    padding: 8px 12px;
+    color: var(--Color-Scheme-1-Text, #fff);
+    font-family: 'IBM Plex Sans';
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+  }
+  .feedback-modal__input:focus,
+  .feedback-modal__textarea:focus {
+    outline: none;
+    border-color: #764191;
+    box-shadow: 0 0 0 2px rgba(118, 65, 145, 0.5);
+  }
+  
+  .feedback-modal__textarea {
+    resize: vertical;
+    min-height: 60px;
+  }
+  
+  .feedback-modal__stars {
+    display: flex;
+    gap: 5px;
+    justify-content: left;
+  }
+  
+  .feedback-modal__star-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    line-height: 1;
+  }
+  
+  .feedback-modal__star-btn svg {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.1s ease;
+  }
+  .feedback-modal__star-btn:hover svg {
+    transform: scale(1.1);
+  }
+  
+  .feedback-modal__star-icon--empty path {
+    fill: #fff;
+  }
+  .feedback-modal__star-icon--filled path {
+    fill: #764191;
+  }
+  
+  .feedback-modal__submit-btn {
+    border-radius: 12px;
+    background: var(--Color-Affair, #764191);
+    box-shadow: 0px 32px 24px 0px rgba(255, 255, 255, 0.05) inset,
+      0px 2px 1px 0px rgba(255, 255, 255, 0.25) inset,
+      0px 0px 0px 1px var(--Opacity-Neutral-Darkest-15, rgba(6, 3, 7, 0.15)) inset,
+      0px -2px 1px 0px rgba(0, 0, 0, 0.2) inset,
+      0px 1px 2px 0px var(--Opacity-Neutral-Darkest-5, rgba(6, 3, 7, 0.05));
+    width: 100%;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-family: 'IBM Plex Sans';
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 5px;
+  }
+  
+  .feedback-modal__submit-btn:hover {
+    background-color: #5a2d70;
+  }
+  .feedback-modal__submit-btn:disabled {
+    background-color: #4a4a4a;
+    cursor: not-allowed;
+  }
+  
   .feedback-container {
-    max-width: 1312px;
+    max-width: 288px;
   }
   .feedback-card {
-    min-height: 354px;
-    padding: 30px 24px;
-    justify-content: center;
+    min-height: 210px;
+    width: 100%;
   }
-   
   .feedback-splide-button {
-    width: 52px;
-    height: 52px;
-    top: calc(354px / 2);
+    display: none;
   }
-  .feedback-splide-button svg {
-    width: 28px;
-    height: 28px;
+  
+  @media screen and (min-width: 768px) {
+    .feedback-section {
+      padding: 64px 32px;
+    }
+    .feedback-container {
+      max-width: 704px;
+    }
+    .feedback-card {
+      min-height: 254px;
+      padding: 24px 20px;
+      gap: 24px;
+    }
+    .feedback-splide-button {
+      display: flex;
+      top: calc(254px / 2);
+    }
+    .feedback-splide-button--prev {
+      left: 10px;
+    }
+    .feedback-splide-button--next {
+      right: 10px;
+    }
+    .feedback-splide-pagination .splide__pagination__page {
+      width: 10px;
+      height: 10px;
+    }
+    .feedback-card__text {
+      max-width: 518px;
+      align-items: center;
+      align-self: center;
+      font-size: 26px;
+      letter-spacing: -0.26px;
+    }
+    .add-feedback-btn {
+      width: 158px;
+      padding: 0;
+      margin-top: 26px;
+    }
+    .feedback-modal-backdrop {
+      background-color: rgba(0, 0, 0, 0.55);
+    }
+    .feedback-modal {
+      width: 704px;
+      height: 688px;
+      padding: 64px 32px;
+    }
+    .feedback-modal__title {
+      font-size: 22px;
+      color: var(--Color-Scheme-1-Text, #fff);
+      text-align: center;
+      font-family: Epilogue;
+      font-size: 44px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 120%;
+      letter-spacing: -0.44px;
+    }
+    .feedback-modal__textarea {
+      min-height: 156px;
+    }
+    .feedback-modal__submit-btn {
+      width: 340px;
+      margin: 0 auto;
+    }
   }
-  .feedback-splide-button--prev {
-    left: 20px;
+  
+  @media screen and (min-width: 1440px) {
+    .feedback-section {
+      padding: 112px 64px;
+    }
+    .feedback-container {
+      max-width: 1312px;
+    }
+    .feedback-card {
+      min-height: 354px;
+      padding: 30px 24px;
+      justify-content: center;
+    }
+  
+    .feedback-splide-button {
+      width: 52px;
+      height: 52px;
+      top: calc(354px / 2);
+    }
+    .feedback-splide-button svg {
+      width: 28px;
+      height: 28px;
+    }
+    .feedback-splide-button--prev {
+      left: 20px;
+    }
+    .feedback-splide-button--next {
+      right: 20px;
+    }
+    .feedback-splide-pagination .splide__pagination__page {
+      width: 12px;
+      height: 12px;
+    }
+    .feedback-card__text {
+      max-width: 866px;
+      font-size: 32px;
+      line-height: 130%;
+      letter-spacing: -0.32px;
+    }
+    .add-feedback-btn {
+      width: 177px;
+      margin-top: 80px;
+      padding: 0;
+    }
+    .feedback-modal {
+      width: 864px;
+      height: 688px;
+      padding: 64px;
+    }
+    .feedback-modal__title {
+      color: var(--Color-Scheme-1-Text, #fff);
+      text-align: center;
+      font-family: Epilogue;
+      font-size: 60px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 120%;
+      letter-spacing: -0.6px;
+    }
+  
+    .feedback-modal__submit-btn {
+      width: 108px;
+      margin: 0 auto;
+    }
   }
-  .feedback-splide-button--next {
-    right: 20px;
-  }
-  .feedback-splide-pagination .splide__pagination__page {
-    width: 12px;
-    height: 12px;
-  }
-  .feedback-card__text {
-    max-width: 866px;      
-    font-size: 32px;    
-    line-height: 130%; 
-    letter-spacing: -0.32px;
-  }
-   
-}
+  

@@ -52,6 +52,13 @@
     text-decoration: none;
 }
 
+/* Анімація посилань на секції */
+.footer-nav-link:hover,
+.footer-nav-link:focus {
+    color: var(--color-neutral-lighter);
+    transition: var(--animation);
+}
+
 .footer-divider {
     border: 1px;
     width: 100%;
@@ -87,6 +94,19 @@
     width: 40px;
     height: 40px;
 }
+
+/* Анімація іконок соціальних мереж */
+
+.footer-social-link {
+    display: inline-block;
+    transition: transform 0.3s ease, scale 0.3s ease;
+}
+
+.footer-social-link:hover,
+.footer-social-link:focus {
+    transform: scale(1.2) rotate(5deg); }
+        /* fill: var(--color-affair); */
+        
 
 /* Tablet Styles */
 @media screen and (min-width: 768px) {

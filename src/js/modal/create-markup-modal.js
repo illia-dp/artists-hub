@@ -23,7 +23,7 @@ export function createArtist(arr, genres) {
                 <use href="/artists-hub/assets/sprite-c2qr3u0C.svg#icon-Close"></use>
               </svg>
             </button>
-            <h2 class="art-modal-name">${strArtist}</h2>
+            <h2 class="art-modal-name" tabindex="0">${strArtist}</h2>
             <div class="art-modal-wrapper">
               <div class="art-modal-wrapper-item">
                 <div class="art-modal-item-img">
@@ -38,23 +38,23 @@ export function createArtist(arr, genres) {
                 <div class="art-modal-titles">
                   <p class="art-modal-live">
                     Years active <br />
-                    <span>${intFormedYear}-${intDiedYear || 'present'}</span>
+                    <span>${intFormedYear || "—"} - ${intDiedYear || 'present'}</span>
                   </p>
                   <p class="art-modal-sex">
                     Sex <br />
-                    <span>${strGender}</span>
+                    <span>${strGender || "—"}</span>
                   </p>
                   <p class="art-modal-members">
                     Members <br />
-                    <span>${intMembers}</span>
+                    <span>${intMembers || "—"}</span>
                   </p>
                   <p class="art-modal-country">
                     Country <br />
-                    <span>${strCountry}</span>
+                    <span>${strCountry || "—"}</span>
                   </p>
                   <p class="art-modal-biography">
                     Biography <br />
-                    <span>${strBiographyEN}</span>
+                    <span>${strBiographyEN || "We don't have this information"}</span>
                   </p>
                 </div>
                 <div class="art-modal-geners">

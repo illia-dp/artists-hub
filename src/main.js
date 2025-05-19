@@ -1,7 +1,3 @@
-
-// Header
-import './js/header/header.js';
-
 // Artists
 import './js/artists/artists.js';
 
@@ -13,4 +9,3 @@ import './js/mobile-menu/mobile-menu.js';
 
 // Modal
 import './js/modal/modal.js';
-
