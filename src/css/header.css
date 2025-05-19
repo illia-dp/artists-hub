@@ -6,9 +6,8 @@
   background-color: var(--color-scheme-1-background);
 }
 
-.header-nav-item {
-  padding-top: 7px;
-  padding-bottom: 7px;
+.burger-btn {
+  padding: 12px;
 }
 
 .header-nav-list {
@@ -32,9 +31,9 @@
     display: none;
   }
 
-  .header-nav {
-    padding-top: 11px;
-    padding-bottom: 11px;
+  .header-nav-item {
+    padding-top: 12px;
+    padding-bottom: 12px;
   }
 
   .header-nav-list {
