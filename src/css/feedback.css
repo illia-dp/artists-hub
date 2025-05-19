@@ -1,9 +1,4 @@
-body {
-    background-color: #060307;
-    font-family: 'Epilogue', 'Open Sans', sans-serif;
-  }
-  
-  .feedback-section {
+.feedback-section {
     padding: 64px 16px;
   }
   .feedback-container {
