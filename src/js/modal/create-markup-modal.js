@@ -1,3 +1,5 @@
+import photo from '../../img/artists/file-not-found.jpg';
+
 const artist = document.querySelector('.art-modal');
 
 export function createArtist(arr, genres) {
@@ -14,7 +16,7 @@ export function createArtist(arr, genres) {
   } = arr;
 
   const genresMarkup = genres
-  .map(genre => `<div class="art-modal-gener"><p>${genre}</p></div>`)
+  .map(genre => `<li class="art-modal-gener"><p>${genre}</p></li>`)
   .join('');
 
   const markup = `
@@ -28,7 +30,7 @@ export function createArtist(arr, genres) {
               <div class="art-modal-wrapper-item">
                 <div class="art-modal-item-img">
                   <img
-                    src="${strArtistThumb}"
+                    src="${strArtistThumb ?? photo}"
                     alt="${strArtist}"
                     class="art-modal-img"
                   />
@@ -57,9 +59,9 @@ export function createArtist(arr, genres) {
                     <span>${strBiographyEN || "We don't have this information"}</span>
                   </p>
                 </div>
-                <div class="art-modal-geners">
+                <ul class="art-modal-geners">
                    ${genresMarkup}
-                </div>
+                </ul>
               </div>
             </div>
             <div class="art-modal-albums">
