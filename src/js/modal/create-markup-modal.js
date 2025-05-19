@@ -98,16 +98,19 @@ function createAllbum(arr) {
 
 function createSongsList(songs, name) {
   return songs[name]
-    .map(({ strTrack, intDuration, movie }) => {
+    .map(({ strTrack, intDuration, movie, strArtist  }) => {
       const duration = formatDuration(intDuration);
 
-      const youtubeLink = movie?.startsWith('http')
-        ? `<a href="${movie}" target="_blank">
-               <svg class="close-icon" width="24" height="25">
-                 <use href="/artists-hub/assets/sprite-c2qr3u0C.svg#icon-Youtube"></use>
-               </svg>
-             </a>`
-        : '';
+      const videoUrl = movie?.startsWith('http')
+      ? movie
+      : `https://www.youtube.com/results?search_query=${encodeURIComponent(`${strArtist} ${strTrack}`)}`;
+
+    const youtubeLink = `
+      <a href="${videoUrl}" target="_blank">
+        <svg class="close-icon" width="24" height="25">
+          <use href="/artists-hub/assets/sprite-c2qr3u0C.svg#icon-Youtube"></use>
+        </svg>
+      </a>`;
 
       return `
           <div class="art-modal-albums-card-item">
