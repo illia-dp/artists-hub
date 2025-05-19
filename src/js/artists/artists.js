@@ -49,7 +49,7 @@ async function showArtistsOnPage(pageFromPagination) {
     artistsList.innerHTML = '';
 
     createArtistsMarkup(data.artists);
-    // Scroll
+    // ----------Scroll----------
     // scrollToArtistsList();
     if (!pageFromPagination) {
       initPagination(totalArtists, limit, currentPage, showArtistsOnPage);
