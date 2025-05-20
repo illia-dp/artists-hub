@@ -26,7 +26,6 @@ export function initPagination(
     visiblePages: 3,
     centerAlign: true,
     page: currentPage,
-    template: template,
   });
 
   pagination.on('afterMove', event => {
@@ -46,20 +45,3 @@ export function resetPagination() {
     pagination = null;
   }
 }
-
-const template = page => {
-  if (page === 'prev') {
-    return `<a href="#" class="tui-page-btn tui-prev">
-              <svg width="24" heirht="24"><use href="../img/sprite.svg#icon-left-arrow-alt"></use></svg>
-            </a>`;
-  }
-  if (page === 'next') {
-    return `<a href="#" class="tui-page-btn tui-next">
-              <svg width="24" heirht="24"><use href="../img/sprite.svg#icon-right-arrow-alt"></use></svg>
-            </a>`;
-  }
-  if (page === 'ellipsis') {
-    return `<span class="tui-ellipsis">...</span>`;
-  }
-  return `<a href="#" class="tui-page-btn">${page}</a>`;
-};
