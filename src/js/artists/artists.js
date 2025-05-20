@@ -11,6 +11,11 @@ import {
 import { getArtists, getCurrentPage, setCurrentPage } from './artists-api';
 import iziToast from 'izitoast';
 
+const btnOpenFilter = document.querySelector('.js-open-filter');
+const btnOpenSorting = document.querySelector('.js-open-sorting');
+const overflowBoxElem = document.querySelector('.js-overflow-box');
+const sortingOptionsElem = document.querySelector('.sorting-options-wrap');
+
 const searchFormElem = document.querySelector('.js-search-form');
 
 let totalArtists = 0;
@@ -67,7 +72,8 @@ async function showArtistsOnPage() {
     hideLoader();
   }
 }
-// start page loading
+// START PAGE LOADING
+handleResponsiveView();
 showArtistsOnPage();
 
 //-------------------  LOAD MORE -----------------------------
@@ -112,8 +118,39 @@ searchFormElem.addEventListener('submit', async event => {
   searchFormElem.reset();
 });
 
-//---------------------------------------------------------------
+//--------------- SELECTED OPTIONS -----------------------
 function getSelectedSortOption() {
   const selectedOption = document.querySelector('input[name="sort"]:checked');
   return selectedOption?.value || '';
+}
+
+// OPEN FILTER
+
+btnOpenFilter.addEventListener('click', () => {
+  toggleClass(btnOpenFilter, 'up-btn');
+  overflowBoxElem.classList.toggle('is-open');
+});
+
+// OPEN SORTING
+btnOpenSorting.addEventListener('click', () => {
+  toggleClass(btnOpenSorting, 'up-btn');
+  sortingOptionsElem.classList.toggle('is-open');
+});
+
+// CHANGE CLASS
+
+function toggleClass(element, jsClass) {
+  element.classList.toggle(jsClass);
+}
+
+//---------------------------------------------------------------
+
+window.addEventListener('resize', handleResponsiveView);
+
+function handleResponsiveView() {
+  if (window.innerWidth === 1440) {
+    overflowBoxElem.classList.add('is-open');
+  } else {
+    overflowBoxElem.classList.remove('is-open');
+  }
 }
