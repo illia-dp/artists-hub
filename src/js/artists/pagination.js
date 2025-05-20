@@ -126,10 +126,9 @@ function getVisiblePages(current, total, isMobile) {
   }
   // Mobile
   if (isMobile) {
+    pages.push(current);
     const page2 = current + 2;
     const page6 = current + 6;
-
-    pages.push(current);
 
     if (page2 <= total) {
       if (page2 - current > 1) {
@@ -139,11 +138,12 @@ function getVisiblePages(current, total, isMobile) {
     }
 
     if (page6 <= total) {
-      if (page6 - page2 > 1) {
+      if (page2 >= total || page6 - page2 > 1) {
         pages.push('...');
       }
       pages.push(page6);
     }
+    return pages;
   } else {
     // PC
     pages.push(current);

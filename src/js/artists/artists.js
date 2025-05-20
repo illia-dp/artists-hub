@@ -13,7 +13,7 @@ const btnOpenFilter = document.querySelector('.js-open-filter');
 const btnOpenSorting = document.querySelector('.js-open-sorting');
 const overflowBoxElem = document.querySelector('.js-overflow-box');
 const sortingOptionsElem = document.querySelector('.sorting-options-wrap');
-
+const paginationContainer = document.getElementById('custom-pagination');
 const searchFormElem = document.querySelector('.js-search-form');
 
 let totalArtists = 0;
@@ -65,7 +65,13 @@ async function showArtistsOnPage(pageFromPagination) {
     // scrollToArtistsList();
 
     resetCustomPagination();
-    initCustomPagination(totalArtists, limit, currentPage, showArtistsOnPage);
+
+    if (totalArtists > limit) {
+      paginationContainer.style.display = 'flex';
+      initCustomPagination(totalArtists, limit, currentPage, showArtistsOnPage);
+    } else {
+      paginationContainer.style.display = 'none';
+    }
   } catch (error) {
     throw new Error();
   } finally {
