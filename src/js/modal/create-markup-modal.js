@@ -1,3 +1,5 @@
+import photo from '../../img/artists/file-not-found.jpg';
+
 const artist = document.querySelector('.art-modal');
 
 export function createArtist(arr, genres) {
@@ -14,7 +16,7 @@ export function createArtist(arr, genres) {
   } = arr;
 
   const genresMarkup = genres
-  .map(genre => `<div class="art-modal-gener"><p>${genre}</p></div>`)
+  .map(genre => `<li class="art-modal-gener"><p>${genre}</p></li>`)
   .join('');
 
   const markup = `
@@ -23,13 +25,14 @@ export function createArtist(arr, genres) {
                 <use href="/artists-hub/assets/sprite-c2qr3u0C.svg#icon-Close"></use>
               </svg>
             </button>
-            <h2 class="art-modal-name" tabindex="0">${strArtist}</h2>
+            <h3 class="art-modal-name" tabindex="0">${strArtist}</h3>
             <div class="art-modal-wrapper">
               <div class="art-modal-wrapper-item">
                 <div class="art-modal-item-img">
                   <img
-                    src="${strArtistThumb}"
+                    src="${strArtistThumb ?? photo}"
                     alt="${strArtist}"
+                    onerror="this.onerror=null; this.src='${photo}'"
                     class="art-modal-img"
                   />
                 </div>
@@ -57,13 +60,13 @@ export function createArtist(arr, genres) {
                     <span>${strBiographyEN || "We don't have this information"}</span>
                   </p>
                 </div>
-                <div class="art-modal-geners">
+                <ul class="art-modal-geners">
                    ${genresMarkup}
-                </div>
+                </ul>
               </div>
             </div>
             <div class="art-modal-albums">
-              <h3 class="art-modal-albums-title">Albums</h3>
+              <h4 class="art-modal-albums-title">Albums</h4>
               <div class="art-modal-albums-cards">
                 ${createAllbum(tracksList)}
               </div>
@@ -80,7 +83,7 @@ function createAllbum(arr) {
     .map(
       albumName =>
         `<div class="art-modal-albums-card">
-            <h4 class="art-modal-albums-card-title">${albumName}</h4>
+            <h5 class="art-modal-albums-card-title">${albumName}</h5>
             <div class="art-modal-albums-card-names">
               <p>Track</p>
               <p>Time</p>
@@ -98,16 +101,19 @@ function createAllbum(arr) {
 
 function createSongsList(songs, name) {
   return songs[name]
-    .map(({ strTrack, intDuration, movie }) => {
+    .map(({ strTrack, intDuration, movie, strArtist  }) => {
       const duration = formatDuration(intDuration);
 
-      const youtubeLink = movie?.startsWith('http')
-        ? `<a href="${movie}" target="_blank">
-               <svg class="close-icon" width="24" height="25">
-                 <use href="/artists-hub/assets/sprite-c2qr3u0C.svg#icon-Youtube"></use>
-               </svg>
-             </a>`
-        : '';
+      const videoUrl = movie?.startsWith('http')
+      ? movie
+      : `https://www.youtube.com/results?search_query=${encodeURIComponent(`${strArtist} ${strTrack}`)}`;
+
+    const youtubeLink = `
+      <a href="${videoUrl}" target="_blank">
+        <svg class="close-icon" width="24" height="25">
+          <use href="/artists-hub/assets/sprite-c2qr3u0C.svg#icon-Youtube"></use>
+        </svg>
+      </a>`;
 
       return `
           <div class="art-modal-albums-card-item">

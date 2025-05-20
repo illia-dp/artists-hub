@@ -1,24 +1,8 @@
-.feedback-section {
-    padding: 64px 16px;
-  }
-  .feedback-container {
+   .feedback-container {
     margin-left: auto;
-    margin-right: auto;
-    max-width: 288px;
+    margin-right: auto; 
     position: relative;
-  }
-  .visually-hidden {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    border: 0;
-    padding: 0;
-    white-space: nowrap;
-    clip-path: inset(100%);
-    clip: rect(0 0 0 0);
-    overflow: hidden;
-  }
+  } 
   
   .loader-backdrop {
     position: absolute;
@@ -26,12 +10,12 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(6, 3, 7, 0.85);
+    background-color: var(--opacity-neutral-darkest-85, rgba(6, 3, 7, 0.85)); 
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 1000;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
+    transition: opacity var(--animation), visibility var(--animation);
   }
   
   .loader-backdrop.is-hidden {
@@ -41,8 +25,8 @@
   }
   
   .loader {
-    border: 5px solid #444;
-    border-top: 5px solid #764191;
+    border: 5px  solid var(--color-neutral-dark, #444);
+    border-top: 5px solid var(--color-affair, #764191);
     border-radius: 50%;
     width: 40px;
     height: 40px;
@@ -70,14 +54,14 @@
   
   .feedback-card {
     box-sizing: border-box;
-    background-color: #060307;
+    background-color: var(--color-scheme-1-background, #060307);
     padding: 20px 16px;
     display: flex;
     gap: 32px;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 15px var(--opacity-neutral-darkest-8, rgba(0, 0, 0, 0.08));
   }
   
   .feedback-card__stars {
@@ -87,37 +71,35 @@
   .feedback-card__star {
     width: 20px;
     height: 19px;
-    fill: #ffffff;
+    fill: var(--color-white, #fff);
   }
   
   .feedback-card__star--filled {
-    fill: #764191;
+    fill: var(--color-affair, #764191);
   }
   .feedback-card__star path[fill='white'] {
-    fill: #ffffff;
+    fill: var(--color-white, #fff);
   }
   .feedback-card__star--filled path {
-    fill: #764191 !important;
+    fill: var(--color-affair, #764191) !important;
   }
-  .feedback-card__text {
-    align-self: stretch;
+  .feedback-card__text { 
     color: var(--Color-Scheme-1-Text, #fff);
     text-align: center;
-    font-family: 'Epilogue', 'Open Sans', sans-serif;
-    font-size: 18px;
-    font-style: normal;
+    font-family: var(--second-family, 'Epilogue', sans-serif);
+    font-size: 18px; 
     font-weight: 700;
-    line-height: 140%;
+    line-height: 1.4;
     letter-spacing: -0.18px;
     margin-bottom: 10px;
+    align-self: stretch;
   }
   .feedback-card__author {
     color: var(--Color-Scheme-1-Text, #fff);
-    font-family: 'IBM Plex Sans', 'Open Sans', sans-serif;
-    font-size: 18px;
-    font-style: normal;
+    font-family: var(--font-family, 'IBM Plex Sans', sans-serif);
+    font-size: 18px; 
     font-weight: 600;
-    line-height: 150%;
+    line-height: 1.5;
   }
   
   .feedback-splide-button {
@@ -126,18 +108,17 @@
     transform: translateY(-50%);
     width: 48px;
     height: 48px;
-    background-color: #060307;
+    background-color: var(--color-scheme-1-background, #060307);
     border-radius: 8px;
     border: 1px solid var(--Opacity-White-50, rgba(255, 255, 255, 0.5));
     z-index: 5;
     cursor: pointer;
-    transition: background-color 0.2s ease, box-shadow 0.2s ease,
-      opacity 0.2s ease;
+    transition: background-color var(--animation), box-shadow var(--animation), border-color var(--animation), opacity var(--animation);
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 0;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 5px var(--opacity-neutral-darkest-10, rgba(0, 0, 0, 0.1));
   }
   
   .feedback-splide-button svg {
@@ -185,22 +166,22 @@
     border: none;
     padding: 0;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    transition: background-color var(--animation), transform var(--animation);
     box-shadow: none;
     margin: 0;
     opacity: 1;
   }
   
   .feedback-splide-pagination .splide__pagination__page:hover {
-    background-color: #b0b0b0;
+    background-color: var(--color-neutral-light, #b0b0b0);
   }
   
   .feedback-splide-pagination .splide__pagination__page.is-active {
-    background-color: #ffffff;
+    background-color: var(--color-white, #fff);
     transform: scale(1.2);
   }
   .feedback-splide-pagination .splide__pagination__page.is-active:hover {
-    background-color: #ffffff;
+    background-color: var(--color-white, #fff);
   }
   
   .add-feedback-button-container {
@@ -211,36 +192,37 @@
   .add-feedback-btn {
     margin: 0 auto;
     display: flex;
-    background-color: #764191;
+    background-color: var(--color-affair, #764191); 
     width: 100%;
     height: 47px;
     color: var(--Color-White, #fff);
-    font-family: 'IBM Plex Sans', 'Open Sans', sans-serif;
-    font-size: 18px;
-    font-style: normal;
+    font-family: var(--font-family, 'IBM Plex Sans', sans-serif);
+    font-size: 18px; 
     font-weight: 500;
-    line-height: 150%;
+    line-height: 1.5;
     border: none;
     padding: 10px 24px;
     justify-content: center;
     align-items: center;
     gap: 8px;
-    box-shadow: 0px 32px 24px 0px rgba(255, 255, 255, 0.05) inset,
-      0px 2px 1px 0px rgba(255, 255, 255, 0.25) inset,
-      0px 0px 0px 1px var(--Opacity-Neutral-Darkest-15, rgba(6, 3, 7, 0.15)) inset,
-      0px -2px 1px 0px rgba(0, 0, 0, 0.2) inset,
-      0px 1px 2px 0px var(--Opacity-Neutral-Darkest-5, rgba(6, 3, 7, 0.05));
+    box-shadow: 0px 32px 24px 0px var(--opacity-white-5, rgba(255, 255, 255, 0.05)) inset,
+    0px 2px 1px 0px var(--opacity-white-25, rgba(255, 255, 255, 0.25)) inset, /* Assuming opacity-white-25 exists or adjust */
+    0px 0px 0px 1px var(--opacity-neutral-darkest-15, rgba(6, 3, 7, 0.15)) inset,
+    0px -2px 1px 0px var(--opacity-black-20, rgba(0, 0, 0, 0.2)) inset, /* Assuming opacity-black-20 exists */
+    0px 1px 2px 0px var(--opacity-neutral-darkest-5, rgba(6, 3, 7, 0.05));
     border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    transition: background-color var(--animation), transform var(--animation), box-shadow var(--animation);
+
   }
   
   .add-feedback-btn:hover,
   .add-feedback-btn:focus {
-    background: #6f4d89;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3), inset 0 -2px 2px rgba(0, 0, 0, 0.3),
-      inset 0 0 0 1px rgba(255, 255, 255, 0.2),
-      inset 0 2px 2px rgba(255, 255, 255, 0.3);
+    background: var(--color-affair-dark, #6f4d89);
+    box-shadow:  0 2px 4px var(--opacity-neutral-darkest-30, rgba(0,0,0,0.3)), /* Using potential variables */
+    inset 0 -2px 2px var(--opacity-neutral-darkest-30, rgba(0,0,0,0.3)),
+    inset 0 0 0 1px var(--opacity-white-20, rgba(255,255,255,0.2)),
+    inset 0 2px 2px var(--opacity-white-30, rgba(255,255,255,0.3));
     transform: translateY(-1px);
     outline: none;
   }
@@ -250,13 +232,13 @@
     text-align: center;
     padding: 20px;
     font-size: 16px;
-    color: #ccc;
+    color: var(--color-neutral-light, #ccc);
   }
   .is-hidden {
     display: none !important;
   }
   .custom-feedback-message.error {
-    color: #ff6b6b;
+    color: var(--color-error-red, #ff6b6b); 
   }
   
   .feedback-modal-backdrop {
@@ -265,14 +247,14 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #060307;
+    background-color: var(--opacity-neutral-darkest-55, rgba(0, 0, 0, 0.55));
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 1050;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
+    transition: opacity var(--animation), visibility var(--animation);
   }
   
   .feedback-modal-backdrop:not(.is-hidden) {
@@ -283,12 +265,12 @@
   .feedback-modal {
     border-radius: var(--Radius-Large, 16px);
     background: var(--Color-Scheme-1-Background, #060307);
-    color: #fff;
+    color: var(--color-white, #fff);
     padding: 64px 16px;
     width: 320px;
     height: auto;
     max-height: 90vh;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 5px 20px var(--opacity-neutral-darkest-40, rgba(0, 0, 0, 0.4));
     position: relative;
     display: flex;
     flex-direction: column;
@@ -301,7 +283,7 @@
     right: 10px;
     background: none;
     border: none;
-    color: #aaa;
+    color: var(--color-neutral, #aaa);
     cursor: pointer;
     padding: 5px;
     line-height: 1;
@@ -309,21 +291,21 @@
   .feedback-modal__close-btn svg {
     width: 24px;
     height: 24px;
-    fill: #fff;
+    fill: var(--color-white, #fff);  
+    transition: fill var(--animation);
   }
   .feedback-modal__close-btn:hover svg {
-    fill: #aaa;
+    fill: var(--color-neutral-light, #aaa); 
   }
   
   .feedback-modal__title {
     color: var(--Color-Scheme-1-Text, #fff);
     text-align: center;
-    font-size: 24px;
-    font-style: normal;
+    font-size: 24px; 
     font-weight: 700;
-    line-height: 130%;
+    line-height: 1.3;
     letter-spacing: -0.24px;
-    font-family: 'Epilogue', 'Open Sans', sans-serif;
+    font-family: var(--second-family, 'Epilogue', sans-serif); 
     margin-bottom: 15px;
   }
   
@@ -340,11 +322,10 @@
   
   .feedback-modal__label {
     color: var(--Color-Scheme-1-Text, #fff);
-    font-family: 'IBM Plex Sans';
-    font-size: 18px;
-    font-style: normal;
+    font-family: var(--font-family, 'IBM Plex Sans', sans-serif);
+    font-size: 18px; 
     font-weight: 400;
-    line-height: 150%;
+    line-height: 1.5;
     margin-bottom: 10px;
   }
   
@@ -355,17 +336,17 @@
     background: var(--Opacity-Transparent, rgba(255, 255, 255, 0));
     padding: 8px 12px;
     color: var(--Color-Scheme-1-Text, #fff);
-    font-family: 'IBM Plex Sans';
-    font-size: 18px;
-    font-style: normal;
+    font-family: var(--font-family, 'IBM Plex Sans', sans-serif);
+    font-size: 18px; 
     font-weight: 400;
-    line-height: 150%;
+    line-height: 1.5;
+    transition: border-color var(--animation), box-shadow var(--animation);
   }
   .feedback-modal__input:focus,
   .feedback-modal__textarea:focus {
     outline: none;
-    border-color: #764191;
-    box-shadow: 0 0 0 2px rgba(118, 65, 145, 0.5);
+    border-color: var(--color-affair, #764191);
+    box-shadow: 0 0 0 2px var(--color-affair-light-50, rgba(118, 65, 145, 0.5));
   }
   
   .feedback-modal__textarea {
@@ -397,45 +378,42 @@
   }
   
   .feedback-modal__star-icon--empty path {
-    fill: #fff;
+    fill: var(--color-white, #fff);
   }
   .feedback-modal__star-icon--filled path {
-    fill: #764191;
+    fill: var(--color-affair, #764191);
   }
   
   .feedback-modal__submit-btn {
     border-radius: 12px;
     background: var(--Color-Affair, #764191);
-    box-shadow: 0px 32px 24px 0px rgba(255, 255, 255, 0.05) inset,
-      0px 2px 1px 0px rgba(255, 255, 255, 0.25) inset,
-      0px 0px 0px 1px var(--Opacity-Neutral-Darkest-15, rgba(6, 3, 7, 0.15)) inset,
-      0px -2px 1px 0px rgba(0, 0, 0, 0.2) inset,
-      0px 1px 2px 0px var(--Opacity-Neutral-Darkest-5, rgba(6, 3, 7, 0.05));
+    box-shadow:  0px 32px 24px 0px var(--opacity-white-5, rgba(255, 255, 255, 0.05)) inset,
+    0px 2px 1px 0px var(--opacity-white-25, rgba(255, 255, 255, 0.25)) inset,
+    0px 0px 0px 1px var(--opacity-neutral-darkest-15, rgba(6, 3, 7, 0.15)) inset,
+    0px -2px 1px 0px var(--opacity-black-20, rgba(0, 0, 0, 0.2)) inset,
+    0px 1px 2px 0px var(--opacity-neutral-darkest-5, rgba(6, 3, 7, 0.05));
     width: 100%;
-    color: white;
+    color: var(--color-white, #fff);
     border: none;
     padding: 10px 15px;
-    font-family: 'IBM Plex Sans';
-    font-size: 18px;
-    font-style: normal;
+    font-family: var(--font-family, 'IBM Plex Sans', sans-serif);
+    font-size: 18px; 
     font-weight: 500;
-    line-height: 150%;
+    line-height: 1.5;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color var(--animation), opacity var(--animation);
     margin-top: 5px;
   }
   
   .feedback-modal__submit-btn:hover {
-    background-color: #5a2d70;
+    background-color:  var(--color-affair-dark, #5a2d70);
   }
   .feedback-modal__submit-btn:disabled {
-    background-color: #4a4a4a;
+    background-color: var(--color-neutral-dark, #4a4a4a); 
+    opacity: 0.7;
     cursor: not-allowed;
   }
-  
-  .feedback-container {
-    max-width: 288px;
-  }
+   
   .feedback-card {
     min-height: 210px;
     width: 100%;
@@ -445,12 +423,7 @@
   }
   
   @media screen and (min-width: 768px) {
-    .feedback-section {
-      padding: 64px 32px;
-    }
-    .feedback-container {
-      max-width: 704px;
-    }
+     
     .feedback-card {
       min-height: 254px;
       padding: 24px 20px;
@@ -471,8 +444,7 @@
       height: 10px;
     }
     .feedback-card__text {
-      max-width: 518px;
-      align-items: center;
+      max-width: 518px; 
       align-self: center;
       font-size: 26px;
       letter-spacing: -0.26px;
@@ -482,23 +454,14 @@
       padding: 0;
       margin-top: 26px;
     }
-    .feedback-modal-backdrop {
-      background-color: rgba(0, 0, 0, 0.55);
-    }
+    
     .feedback-modal {
-      width: 704px;
-      height: 688px;
+      width: 704px; 
       padding: 64px 32px;
     }
-    .feedback-modal__title {
-      font-size: 22px;
-      color: var(--Color-Scheme-1-Text, #fff);
-      text-align: center;
-      font-family: Epilogue;
-      font-size: 44px;
-      font-style: normal;
-      font-weight: 700;
-      line-height: 120%;
+    .feedback-modal__title {  
+      font-size: 44px; 
+      line-height: 1.2;
       letter-spacing: -0.44px;
     }
     .feedback-modal__textarea {
@@ -511,12 +474,7 @@
   }
   
   @media screen and (min-width: 1440px) {
-    .feedback-section {
-      padding: 112px 64px;
-    }
-    .feedback-container {
-      max-width: 1312px;
-    }
+     
     .feedback-card {
       min-height: 354px;
       padding: 30px 24px;
@@ -545,7 +503,7 @@
     .feedback-card__text {
       max-width: 866px;
       font-size: 32px;
-      line-height: 130%;
+      line-height: 1.3;
       letter-spacing: -0.32px;
     }
     .add-feedback-btn {
@@ -554,18 +512,12 @@
       padding: 0;
     }
     .feedback-modal {
-      width: 864px;
-      height: 688px;
+      width: 864px; 
       padding: 64px;
     }
-    .feedback-modal__title {
-      color: var(--Color-Scheme-1-Text, #fff);
-      text-align: center;
-      font-family: Epilogue;
-      font-size: 60px;
-      font-style: normal;
-      font-weight: 700;
-      line-height: 120%;
+    .feedback-modal__title { 
+      font-size: 60px; 
+      line-height: 1.2;
       letter-spacing: -0.6px;
     }
   
