@@ -22,16 +22,17 @@ export function createArtist(arr, genres) {
   const markup = `
             <button class="modal-close-btn" type="button">
               <svg class="close-icon" width="32" height="32">
-                <use href="/artists-hub/assets/sprite-c2qr3u0C.svg#icon-Close"></use>
+                <use href="./img/sprite.svg#icon-Close"></use>
               </svg>
             </button>
-            <h2 class="art-modal-name" tabindex="0">${strArtist}</h2>
+            <h3 class="art-modal-name" tabindex="0">${strArtist}</h3>
             <div class="art-modal-wrapper">
               <div class="art-modal-wrapper-item">
                 <div class="art-modal-item-img">
                   <img
                     src="${strArtistThumb ?? photo}"
                     alt="${strArtist}"
+                    onerror="this.onerror=null; this.src='${photo}'"
                     class="art-modal-img"
                   />
                 </div>
@@ -65,7 +66,7 @@ export function createArtist(arr, genres) {
               </div>
             </div>
             <div class="art-modal-albums">
-              <h3 class="art-modal-albums-title">Albums</h3>
+              <h4 class="art-modal-albums-title">Albums</h4>
               <div class="art-modal-albums-cards">
                 ${createAllbum(tracksList)}
               </div>
@@ -82,7 +83,7 @@ function createAllbum(arr) {
     .map(
       albumName =>
         `<div class="art-modal-albums-card">
-            <h4 class="art-modal-albums-card-title">${albumName}</h4>
+            <h5 class="art-modal-albums-card-title">${albumName}</h5>
             <div class="art-modal-albums-card-names">
               <p>Track</p>
               <p>Time</p>
