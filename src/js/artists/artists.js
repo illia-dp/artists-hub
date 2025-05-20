@@ -6,7 +6,7 @@ import {
   scrollToArtistsList,
 } from './create-markup-artists';
 import { getArtists, setCurrentPage } from './artists-api';
-import { initPagination, resetPagination } from './pagination';
+import { initCustomPagination, resetCustomPagination } from './pagination';
 import iziToast from 'izitoast';
 
 const btnOpenFilter = document.querySelector('.js-open-filter');
@@ -18,7 +18,7 @@ const searchFormElem = document.querySelector('.js-search-form');
 
 let totalArtists = 0;
 let limit = 1;
-let maxPage;
+let maxPage = 1;
 let inputData = '';
 let currentPage = 1;
 let currentOption = '';
@@ -64,9 +64,8 @@ async function showArtistsOnPage(pageFromPagination) {
     // !!----------Scroll----------!!
     // scrollToArtistsList();
 
-    if (!pageFromPagination) {
-      initPagination(totalArtists, limit, currentPage, showArtistsOnPage);
-    }
+    resetCustomPagination();
+    initCustomPagination(totalArtists, limit, currentPage, showArtistsOnPage);
   } catch (error) {
     throw new Error();
   } finally {
@@ -76,26 +75,6 @@ async function showArtistsOnPage(pageFromPagination) {
 // START PAGE LOADING
 handleResponsiveView();
 showArtistsOnPage();
-
-//-------------------  LOAD MORE -----------------------------
-
-// btnLoadMoreElem.addEventListener('click', async () => {
-//   if (currentPage === maxPage) {
-//     hideLoadMoreButton();
-//     return;
-//   }
-
-//   hideLoadMoreButton();
-//   showLoader();
-
-//   const page = getCurrentPage();
-//   setCurrentPage(page + 1);
-//   currentPage += 1;
-
-//   await showArtistsOnPage();
-//   hideLoader();
-//   scrollWin(0, heightScroll); //Scroll down
-// });
 
 //-------------------SEARCH BY NAME--------------------------
 searchFormElem.addEventListener('submit', async event => {
@@ -114,8 +93,6 @@ searchFormElem.addEventListener('submit', async event => {
     return;
   }
   artistsList.innerHTML = '';
-  resetPagination();
-  currentPage = 1;
   setCurrentPage(currentPage);
   showArtistsOnPage(currentPage);
   searchFormElem.reset();
