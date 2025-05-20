@@ -2,30 +2,89 @@
   <div class="container artists-container">
     <h2 class="artists-title" tabindex="0">Artists</h2>
     <h3 class="artists-subtitle">Explore Your New Favorite Artists</h3>
-    <div class="artists-bar"></div>
+    <!-- <div class="artists-bar"></div> -->
 
-    <form class="search-form js-search-form hidden">
-      <label for="search">
-        <input id="search" type="text" name="search" />
-      </label>
-      <button type="submit" style="background-color: #999; margin-bottom: 40px">
-        Search
-      </button>
-    </form>
+    <div class="artists-filter">
+      <div class="artists-filter-drop">
+        <p class="search-form-title">Filters</p>
+        <div class="artists-filter-shelf">
+          <p class="filter-shelf-text">Search and Filters</p>
+          <button
+            class="drop-btn down-btn js-open-filter"
+            type="button"
+          ></button>
+        </div>
+      </div>
+
+      <div class="overflow-box js-overflow-box">
+        <form class="search-form js-search-form">
+          <div class="search-box">
+            <label>
+              <input
+                class="search-form-input"
+                type="search"
+                name="search"
+                placeholder="Search"
+              />
+            </label>
+
+            <button class="search-btn" type="submit">
+              <svg class="Icon-chevron-up" width="24" height="24">
+                <use href="/img/sprite.svg#icon-search"></use>
+              </svg>
+            </button>
+          </div>
+
+          <div class="sorting-options-box">
+            <div class="sorting-wrap">
+              <p class="sorting-wrap-title">Sorting</p>
+              <button
+                class="drop-btn down-btn js-open-sorting"
+                type="button"
+              ></button>
+            </div>
+
+            <div class="sorting-options-wrap">
+              <input type="radio" name="sort" id="default" value="" />
+              <input
+                class="js-option-abc"
+                type="radio"
+                name="sort"
+                id="abc"
+                value="asc"
+              />
+              <input
+                class="js-option-zyx"
+                type="radio"
+                name="sort"
+                id="zyx"
+                value="desc"
+              />
+
+              <div class="sorting-label-box">
+                <label class="default" for="default">Default</label>
+                <label class="abc" for="abc">A-Z</label>
+                <label class="zyx" for="zyx">Z-A</label>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
 
     <ul class="artists-list"></ul>
+
+    <div class="artists-loader hidden"></div>
+
+    <button
+      type="button"
+      class="load-more js-load-more hidden"
+      aria-label="button to load more"
+    >
+      Load More
+      <svg class="icon-down-arrow-alt" width="24" height="24">
+        <use href="/img/sprite.svg#icon-down-arrow-alt"></use>
+      </svg>
+    </button>
   </div>
-
-  <div class="artists-loader hidden"></div>
-
-  <button
-    type="button"
-    class="load-more js-load-more hidden"
-    aria-label="button to load more"
-  >
-    Load More
-    <svg class="icon-down-arrow-alt" width="24" height="24">
-      <use href="/img/sprite.svg#icon-down-arrow-alt"></use>
-    </svg>
-  </button>
 </section>
