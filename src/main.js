@@ -10,5 +10,3 @@ import './js/mobile-menu/mobile-menu.js';
 // Modal
 import './js/modal/modal.js';
 
-// Logo
-import './js/header-logo/logo.js';
