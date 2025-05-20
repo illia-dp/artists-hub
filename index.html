@@ -20,7 +20,7 @@
     <script type="module" crossorigin src="/artists-hub/index.js"></script>
     <link rel="modulepreload" crossorigin href="/artists-hub/assets/vendor-wfFJNmu3.js">
     <link rel="stylesheet" crossorigin href="/artists-hub/assets/vendor-CJ4fCx5j.css">
-    <link rel="stylesheet" crossorigin href="/artists-hub/assets/index-TJQ2BLq-.css">
+    <link rel="stylesheet" crossorigin href="/artists-hub/assets/index-DI-C-K9B.css">
   </head>
   <body>
     <!-- Ганна Пономаренко -->
@@ -97,7 +97,6 @@
   <div class="container artists-container">
     <h2 class="artists-title" tabindex="0">Artists</h2>
     <h3 class="artists-subtitle">Explore Your New Favorite Artists</h3>
-    <!-- <div class="artists-bar"></div> -->
 
     <div class="artists-filter">
       <div class="artists-filter-drop">
@@ -107,6 +106,7 @@
           <button
             class="drop-btn down-btn js-open-filter"
             type="button"
+            aria-label="button to open or filter bar"
           ></button>
         </div>
       </div>
@@ -123,7 +123,11 @@
               />
             </label>
 
-            <button class="search-btn" type="submit">
+            <button
+              class="search-btn"
+              type="submit"
+              aria-label="searching button"
+            >
               <svg class="Icon-chevron-up" width="24" height="24">
                 <use href="/artists-hub/assets/sprite-c2qr3u0C.svg#icon-search"></use>
               </svg>
@@ -136,6 +140,7 @@
               <button
                 class="drop-btn down-btn js-open-sorting"
                 type="button"
+                aria-label="button to open or close sorting dashboard"
               ></button>
             </div>
 
@@ -171,17 +176,6 @@
 
     <div id="tui-pagination-container" class="tui-pagination"></div>
     <div class="artists-loader hidden"></div>
-
-    <!-- <button
-    type="button"
-    class="load-more js-load-more hidden"
-    aria-label="button to load more"
-  >
-    Load More
-    <svg class="icon-down-arrow-alt" width="24" height="24">
-      <use href="/img/sprite.svg#icon-down-arrow-alt"></use>
-    </svg>
-  </button> -->
   </div>
 </section>
 
