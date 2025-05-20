@@ -14,8 +14,8 @@
   color: var(--color-white);
   border: none;
   border-radius: 12px;
-  padding: 10px 21px;
-  width: 56px;
+  padding: 10px 17px;
+  width: 46px;
   height: 47px;
 
   transition: background-color var(--animation);
@@ -41,11 +41,43 @@
   background: none;
 }
 
-.tui-pagination .tui-next,
+/*  */
+.tui-page-btn .tui-ico-next,
+.tui-page-btn .tui-ico-prev {
+  display: none;
+}
+
 .tui-pagination .tui-prev {
   margin: 0;
-  padding: 12px;
+  margin-right: 10px;
 }
+
+.tui-page-btn.tui-prev-is-ellip,
+.tui-page-btn.tui-next-is-ellip {
+  min-width: 16px;
+  padding: 0;
+  padding-top: 8px;
+}
+
+.tui-page-btn.tui-prev {
+  background-image: url(../img/artists/slider-arrow.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  min-width: 46px;
+
+  transform: rotate(180deg);
+}
+
+.tui-page-btn.tui-next {
+  background-image: url(../img/artists/slider-arrow.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  min-width: 46px;
+}
+/*  */
 
 .tui-pagination .tui-is-selected,
 .tui-pagination strong {
@@ -68,7 +100,21 @@
 }
 
 @media screen and (min-width: 768px) {
+  .tui-pagination {
+    width: 372px;
+    margin-left: 658px;
+  }
   .tui-pagination .tui-page-btn {
     width: 59px;
+  }
+
+  .tui-page-btn.tui-prev,
+  .tui-page-btn.tui-next {
+    width: 48px;
+  }
+
+  .tui-page-btn.tui-prev-is-ellip,
+  .tui-page-btn.tui-next-is-ellip {
+    width: 16px;
   }
 }
