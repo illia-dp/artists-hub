@@ -67,16 +67,12 @@ export function showLoader() {
 export function hideLoader() {
   loaderElem.classList.add('hidden');
 }
-export function showLoadMoreButton() {
-  btnLoadMoreElem.classList.remove('hidden');
-}
-export function hideLoadMoreButton() {
-  btnLoadMoreElem.classList.add('hidden');
-}
-export function scrollWin(x, y) {
-  window.scrollBy({
-    top: y,
-    left: x,
-    behavior: 'smooth',
-  });
+export function scrollToArtistsList() {
+  const artistsListElem = document.querySelector('.artists');
+  if (artistsListElem) {
+    artistsListElem.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+    });
+  }
 }

@@ -1,14 +1,12 @@
 import {
   createArtistsMarkup,
   hideLoader,
-  hideLoadMoreButton,
   showLoader,
-  showLoadMoreButton,
-  btnLoadMoreElem,
-  scrollWin,
   artistsList,
+  scrollToArtistsList,
 } from './create-markup-artists';
-import { getArtists, getCurrentPage, setCurrentPage } from './artists-api';
+import { getArtists, setCurrentPage } from './artists-api';
+import { initPagination, resetPagination } from './pagination';
 import iziToast from 'izitoast';
 
 const btnOpenFilter = document.querySelector('.js-open-filter');
@@ -21,17 +19,26 @@ const searchFormElem = document.querySelector('.js-search-form');
 let totalArtists = 0;
 let limit = 1;
 let maxPage;
-let liElem;
-let heightScroll = 0;
 let inputData = '';
 let currentPage = 1;
 let currentOption = '';
 let data;
 
+<<<<<<< HEAD
+async function showArtistsOnPage(pageFromPagination) {
+  let data;
+=======
 // the main function for getting and rendering artists
 async function showArtistsOnPage() {
+>>>>>>> main
   try {
     showLoader();
+
+    if (pageFromPagination) {
+      currentPage = pageFromPagination;
+      setCurrentPage(currentPage);
+    }
+
     if (!inputData) {
       data = await getArtists(); // all
     } else if (!currentOption) {
@@ -55,17 +62,23 @@ async function showArtistsOnPage() {
     limit = data.limit;
     maxPage = Math.ceil(totalArtists / limit);
 
+    artistsList.innerHTML = '';
+
     createArtistsMarkup(data.artists);
+<<<<<<< HEAD
+    // ----------Scroll----------
+    // scrollToArtistsList();
+    if (!pageFromPagination) {
+      initPagination(totalArtists, limit, currentPage, showArtistsOnPage);
+=======
 
     //don't show button if the last page
     if (currentPage === maxPage) {
       return;
     } else {
       showLoadMoreButton();
+>>>>>>> main
     }
-
-    liElem = document.querySelector('.artists-item');
-    heightScroll = liElem.getBoundingClientRect().height;
   } catch (error) {
     throw new Error();
   } finally {
@@ -78,23 +91,41 @@ showArtistsOnPage();
 
 //-------------------  LOAD MORE -----------------------------
 
+<<<<<<< HEAD
+// btnLoadMoreElem.addEventListener('click', async () => {
+//   if (currentPage === maxPage) {
+//     console.log('ok');
+//     hideLoadMoreButton();
+//     return;
+//   } else {
+//     showLoadMoreButton();
+//   }
+=======
 btnLoadMoreElem.addEventListener('click', async () => {
   if (currentPage === maxPage) {
     hideLoadMoreButton();
     return;
   }
+>>>>>>> main
 
-  hideLoadMoreButton();
-  showLoader();
+//   hideLoadMoreButton();
+//   showLoader();
 
-  const page = getCurrentPage();
-  setCurrentPage(page + 1);
-  currentPage += 1;
+//   const page = getCurrentPage();
+//   setCurrentPage(page + 1);
+//   currentPage += 1;
 
+<<<<<<< HEAD
+//   await showArtistsOnPage();
+//   hideLoader();
+//   scrollWin(0, heightScroll);
+// });
+=======
   await showArtistsOnPage();
   hideLoader();
   scrollWin(0, heightScroll); //Scroll down
 });
+>>>>>>> main
 
 //-------------------SEARCH BY NAME--------------------------
 searchFormElem.addEventListener('submit', async event => {
@@ -114,7 +145,10 @@ searchFormElem.addEventListener('submit', async event => {
     return;
   }
   artistsList.innerHTML = '';
-  showArtistsOnPage();
+  resetPagination();
+  currentPage = 1;
+  setCurrentPage(currentPage);
+  showArtistsOnPage(currentPage);
   searchFormElem.reset();
 });
 
