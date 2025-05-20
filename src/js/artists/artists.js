@@ -64,8 +64,15 @@ async function showArtistsOnPage(pageFromPagination) {
     // !!----------Scroll----------!!
     // scrollToArtistsList();
 
+    const paginationContainer = document.getElementById('custom-pagination');
     resetCustomPagination();
-    initCustomPagination(totalArtists, limit, currentPage, showArtistsOnPage);
+
+    if (data.artists.length >= limit) {
+      paginationContainer.style.display = 'flex';
+      initCustomPagination(totalArtists, limit, currentPage, showArtistsOnPage);
+    } else {
+      paginationContainer.style.display = 'none';
+    }
   } catch (error) {
     throw new Error();
   } finally {
