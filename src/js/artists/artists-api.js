@@ -5,9 +5,6 @@ import 'izitoast/dist/css/iziToast.min.css';
 const imagesOnPage = 8;
 let currentPage = 1;
 
-export function getCurrentPage() {
-  return currentPage;
-}
 export function setCurrentPage(newPage) {
   currentPage = newPage;
 }
