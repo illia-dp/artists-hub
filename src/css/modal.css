@@ -49,10 +49,10 @@
   background: rgba(0, 0, 0, 0.25);
   overflow-y: auto;
   scrollbar-width: none;
+  position: relative;
 }
 
 .art-modal {
-  position: relative;
   background-color: var(--color-neutral-darkest);
   color: var(--color-white);
   padding: 52px 8px;

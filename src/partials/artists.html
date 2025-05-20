@@ -2,7 +2,6 @@
   <div class="container artists-container">
     <h2 class="artists-title" tabindex="0">Artists</h2>
     <h3 class="artists-subtitle">Explore Your New Favorite Artists</h3>
-    <!-- <div class="artists-bar"></div> -->
 
     <div class="artists-filter">
       <div class="artists-filter-drop">
@@ -12,6 +11,7 @@
           <button
             class="drop-btn down-btn js-open-filter"
             type="button"
+            aria-label="button to open or filter bar"
           ></button>
         </div>
       </div>
@@ -28,7 +28,11 @@
               />
             </label>
 
-            <button class="search-btn" type="submit">
+            <button
+              class="search-btn"
+              type="submit"
+              aria-label="searching button"
+            >
               <svg class="Icon-chevron-up" width="24" height="24">
                 <use href="/img/sprite.svg#icon-search"></use>
               </svg>
@@ -41,6 +45,7 @@
               <button
                 class="drop-btn down-btn js-open-sorting"
                 type="button"
+                aria-label="button to open or close sorting dashboard"
               ></button>
             </div>
 
