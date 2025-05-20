@@ -115,6 +115,7 @@ btnOpenFilter.addEventListener('click', () => {
 btnOpenSorting.addEventListener('click', () => {
   toggleClass(btnOpenSorting, 'up-btn');
   sortingOptionsElem.classList.toggle('is-open');
+  document.querySelector('.sorting-wrap').classList.toggle('is-open');
 });
 
 // CHANGE CLASS
