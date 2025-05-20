@@ -14,7 +14,7 @@ export function createArtistsMarkup(arr) {
       const uniqueGenres = [...new Set(flattenedGenres)];
 
       const genresMarkup = uniqueGenres
-        .map(genre => `<span class="artists-genre">${genre}</span>`)
+        .map(genre => `<li class="artists-genre">${genre}</li>`)
         .join('');
 
       return `
@@ -31,7 +31,7 @@ export function createArtistsMarkup(arr) {
               />
             </div>
 
-            <div class="artists-box-genres">${genresMarkup}</div>
+            <ul class="artists-box-genres">${genresMarkup}</ul>
 
             <div class="artists-content">
               <h4 class="artists-name">${strArtist}</h4>
