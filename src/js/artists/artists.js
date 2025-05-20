@@ -24,13 +24,10 @@ let currentPage = 1;
 let currentOption = '';
 let data;
 
-<<<<<<< HEAD
+// the main function for getting and rendering artists
 async function showArtistsOnPage(pageFromPagination) {
   let data;
-=======
-// the main function for getting and rendering artists
-async function showArtistsOnPage() {
->>>>>>> main
+
   try {
     showLoader();
 
@@ -65,19 +62,11 @@ async function showArtistsOnPage() {
     artistsList.innerHTML = '';
 
     createArtistsMarkup(data.artists);
-<<<<<<< HEAD
+
     // ----------Scroll----------
     // scrollToArtistsList();
     if (!pageFromPagination) {
       initPagination(totalArtists, limit, currentPage, showArtistsOnPage);
-=======
-
-    //don't show button if the last page
-    if (currentPage === maxPage) {
-      return;
-    } else {
-      showLoadMoreButton();
->>>>>>> main
     }
   } catch (error) {
     throw new Error();
@@ -91,7 +80,6 @@ showArtistsOnPage();
 
 //-------------------  LOAD MORE -----------------------------
 
-<<<<<<< HEAD
 // btnLoadMoreElem.addEventListener('click', async () => {
 //   if (currentPage === maxPage) {
 //     console.log('ok');
@@ -100,13 +88,6 @@ showArtistsOnPage();
 //   } else {
 //     showLoadMoreButton();
 //   }
-=======
-btnLoadMoreElem.addEventListener('click', async () => {
-  if (currentPage === maxPage) {
-    hideLoadMoreButton();
-    return;
-  }
->>>>>>> main
 
 //   hideLoadMoreButton();
 //   showLoader();
@@ -115,17 +96,10 @@ btnLoadMoreElem.addEventListener('click', async () => {
 //   setCurrentPage(page + 1);
 //   currentPage += 1;
 
-<<<<<<< HEAD
 //   await showArtistsOnPage();
 //   hideLoader();
 //   scrollWin(0, heightScroll);
 // });
-=======
-  await showArtistsOnPage();
-  hideLoader();
-  scrollWin(0, heightScroll); //Scroll down
-});
->>>>>>> main
 
 //-------------------SEARCH BY NAME--------------------------
 searchFormElem.addEventListener('submit', async event => {
