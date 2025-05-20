@@ -79,8 +79,13 @@ async function showArtistsOnPage(pageFromPagination) {
   }
 }
 // START PAGE LOADING
-handleResponsiveView();
-showArtistsOnPage();
+window.addEventListener('DOMContentLoaded', () => {
+  handleResponsiveView();
+
+  requestIdleCallback(() => {
+    showArtistsOnPage();
+  });
+});
 
 //-------------------SEARCH BY NAME--------------------------
 searchFormElem.addEventListener('submit', async event => {
