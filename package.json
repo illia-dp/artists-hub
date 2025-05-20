@@ -21,6 +21,7 @@
     "axios": "^1.9.0",
     "izitoast": "^1.4.0",
     "swiper.js": "^1.0.0",
+    "tui-pagination": "^3.4.1",
     "vite-plugin-full-reload": "^1.2.0",
     "vite-plugin-html-inject": "^1.1.2"
   }
