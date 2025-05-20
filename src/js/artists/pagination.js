@@ -4,6 +4,7 @@ import '../../css/pagination.css';
 let currentPage = 1;
 let totalPages = 1;
 let onPageChangeCallback = null;
+let isMobile = window.innerWidth < 768;
 
 export function initCustomPagination(
   totalItems,
@@ -18,6 +19,16 @@ export function initCustomPagination(
   onPageChangeCallback = onPageChange;
 
   renderPagination(container);
+  window.addEventListener('resize', handleResize);
+}
+
+function handleResize() {
+  const newIsMobile = window.innerWidth < 768;
+
+  if (newIsMobile !== isMobile) {
+    isMobile = newIsMobile;
+    renderPagination(document.getElementById('custom-pagination'));
+  }
 }
 
 export function resetCustomPagination() {
@@ -29,11 +40,12 @@ function renderPagination(container) {
   container.innerHTML = '';
 
   const pegesList = document.createElement('div');
+  pegesList.setAttribute('role', 'navigation');
+  pegesList.setAttribute('aria-label', 'Pagination');
   pegesList.className = 'pagination-wrapper';
 
   pegesList.appendChild(createArrow('prev'));
 
-  const isMobile = window.innerWidth < 768;
   const pages = getVisiblePages(currentPage, totalPages, isMobile);
 
   pages.forEach(p => {
@@ -46,6 +58,14 @@ function renderPagination(container) {
       const btn = document.createElement('button');
       btn.textContent = p;
       btn.className = 'pagination-btn';
+      btn.setAttribute('aria-label', `Go to page ${p}`);
+
+      if (isMobile || p !== currentPage) {
+        btn.setAttribute('tabindex', '-1');
+      } else {
+        btn.setAttribute('tabindex', '0');
+      }
+
       if (p === currentPage) {
         btn.classList.add('active');
       }
@@ -73,10 +93,16 @@ function createArrow(direction) {
       : '/artists-hub/assets/sprite-c2qr3u0C.svg#icon-right-arrow-alt';
 
   btn.innerHTML = `
-    <svg class="pagination-icon" width="24" height="24">
-      <use href="${iconId}"></use>
-    </svg>
-  `;
+      <svg class="pagination-icon" width="24" height="24" aria-hidden="true">
+        <use href="${iconId}"></use>
+      </svg>
+    `;
+
+  btn.setAttribute(
+    'aria-label',
+    direction === 'prev' ? 'Previous page' : 'Next page'
+  );
+
   btn.disabled =
     (direction === 'prev' && currentPage === 1) ||
     (direction === 'next' && currentPage === totalPages);

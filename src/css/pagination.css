@@ -55,10 +55,6 @@
     color: var(--color-white);
 }
 
-/* .pagination-icon {
-    fill: white;
-} */
-
 .pagination-arrow:disabled {
     opacity: 0.4;
     pointer-events: none;

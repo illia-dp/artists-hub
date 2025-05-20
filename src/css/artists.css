@@ -165,7 +165,7 @@
 
 .sorting-wrap {
   border: 1px solid var(--opacity-white-20);
-  border-radius: 12px 12px 0 0;
+  border-radius: 12px;
   padding: 8px 12px;
   width: 100%;
   height: 43px;
@@ -175,11 +175,12 @@
   justify-content: space-between;
 }
 
+.sorting-wrap.is-open {
+  border-radius: 12px 12px 0 0;
+}
+
 .sorting-options-wrap {
   position: relative;
-  border-bottom: 1px solid var(--color-scheme-1-border);
-  border-left: 1px solid var(--color-scheme-1-border);
-  border-right: 1px solid var(--color-scheme-1-border);
   border-radius: 0 0 16px 16px;
   padding: 0px 24px;
   width: 100%;
@@ -191,6 +192,9 @@
 .sorting-options-wrap.is-open {
   padding: 24px;
   height: 160px;
+  border-bottom: 1px solid var(--color-scheme-1-border);
+  border-left: 1px solid var(--color-scheme-1-border);
+  border-right: 1px solid var(--color-scheme-1-border);
 }
 
 .sorting-label-box {
