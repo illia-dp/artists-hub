@@ -9,6 +9,11 @@ import { getArtists, setCurrentPage } from './artists-api';
 import { initPagination, resetPagination } from './pagination';
 import iziToast from 'izitoast';
 
+const btnOpenFilter = document.querySelector('.js-open-filter');
+const btnOpenSorting = document.querySelector('.js-open-sorting');
+const overflowBoxElem = document.querySelector('.js-overflow-box');
+const sortingOptionsElem = document.querySelector('.sorting-options-wrap');
+
 const searchFormElem = document.querySelector('.js-search-form');
 
 let totalArtists = 0;
@@ -16,9 +21,16 @@ let limit = 1;
 let maxPage;
 let inputData = '';
 let currentPage = 1;
+let currentOption = '';
+let data;
 
+<<<<<<< HEAD
 async function showArtistsOnPage(pageFromPagination) {
   let data;
+=======
+// the main function for getting and rendering artists
+async function showArtistsOnPage() {
+>>>>>>> main
   try {
     showLoader();
 
@@ -28,20 +40,24 @@ async function showArtistsOnPage(pageFromPagination) {
     }
 
     if (!inputData) {
-      data = await getArtists();
+      data = await getArtists(); // all
+    } else if (!currentOption) {
+      data = await getArtists(inputData); // without sorting
     } else {
-      data = await getArtists(inputData);
+      data = await getArtists(inputData, currentOption); // with sorting
     }
 
     if (data.artists.length === 0) {
       searchFormElem.reset();
       iziToast.warning({
-        message: 'Sorry, but no artists were found',
+        message: 'Sorry, but no artist was found for your query',
         position: 'center',
       });
+      inputData = '';
       data = await getArtists();
     }
 
+    //for pagination
     totalArtists = data.totalArtists;
     limit = data.limit;
     maxPage = Math.ceil(totalArtists / limit);
@@ -49,10 +65,19 @@ async function showArtistsOnPage(pageFromPagination) {
     artistsList.innerHTML = '';
 
     createArtistsMarkup(data.artists);
+<<<<<<< HEAD
     // ----------Scroll----------
     // scrollToArtistsList();
     if (!pageFromPagination) {
       initPagination(totalArtists, limit, currentPage, showArtistsOnPage);
+=======
+
+    //don't show button if the last page
+    if (currentPage === maxPage) {
+      return;
+    } else {
+      showLoadMoreButton();
+>>>>>>> main
     }
   } catch (error) {
     throw new Error();
@@ -60,11 +85,13 @@ async function showArtistsOnPage(pageFromPagination) {
     hideLoader();
   }
 }
-
+// START PAGE LOADING
+handleResponsiveView();
 showArtistsOnPage();
 
 //-------------------  LOAD MORE -----------------------------
 
+<<<<<<< HEAD
 // btnLoadMoreElem.addEventListener('click', async () => {
 //   if (currentPage === maxPage) {
 //     console.log('ok');
@@ -73,6 +100,13 @@ showArtistsOnPage();
 //   } else {
 //     showLoadMoreButton();
 //   }
+=======
+btnLoadMoreElem.addEventListener('click', async () => {
+  if (currentPage === maxPage) {
+    hideLoadMoreButton();
+    return;
+  }
+>>>>>>> main
 
 //   hideLoadMoreButton();
 //   showLoader();
@@ -81,14 +115,27 @@ showArtistsOnPage();
 //   setCurrentPage(page + 1);
 //   currentPage += 1;
 
+<<<<<<< HEAD
 //   await showArtistsOnPage();
 //   hideLoader();
 //   scrollWin(0, heightScroll);
 // });
+=======
+  await showArtistsOnPage();
+  hideLoader();
+  scrollWin(0, heightScroll); //Scroll down
+});
+>>>>>>> main
 
 //-------------------SEARCH BY NAME--------------------------
 searchFormElem.addEventListener('submit', async event => {
   event.preventDefault();
+  hideLoadMoreButton();
+  setCurrentPage(1);
+  currentPage = 1;
+
+  currentOption = getSelectedSortOption();
+
   inputData = event.target.elements.search.value.trim().toLowerCase();
   if (!inputData) {
     iziToast.warning({
@@ -104,3 +151,40 @@ searchFormElem.addEventListener('submit', async event => {
   showArtistsOnPage(currentPage);
   searchFormElem.reset();
 });
+
+//--------------- SELECTED OPTIONS -----------------------
+function getSelectedSortOption() {
+  const selectedOption = document.querySelector('input[name="sort"]:checked');
+  return selectedOption?.value || '';
+}
+
+// OPEN FILTER
+
+btnOpenFilter.addEventListener('click', () => {
+  toggleClass(btnOpenFilter, 'up-btn');
+  overflowBoxElem.classList.toggle('is-open');
+});
+
+// OPEN SORTING
+btnOpenSorting.addEventListener('click', () => {
+  toggleClass(btnOpenSorting, 'up-btn');
+  sortingOptionsElem.classList.toggle('is-open');
+});
+
+// CHANGE CLASS
+
+function toggleClass(element, jsClass) {
+  element.classList.toggle(jsClass);
+}
+
+//---------------------------------------------------------------
+
+window.addEventListener('resize', handleResponsiveView);
+
+function handleResponsiveView() {
+  if (window.innerWidth === 1440) {
+    overflowBoxElem.classList.add('is-open');
+  } else {
+    overflowBoxElem.classList.remove('is-open');
+  }
+}

@@ -9,11 +9,16 @@ export function setCurrentPage(newPage) {
   currentPage = newPage;
 }
 
-export async function getArtists(artistName) {
+export async function getArtists(artistName, option) {
   const BASE_URL = 'https://sound-wave.b.goit.study/api/artists';
   try {
     const response = await axios.get(BASE_URL, {
-      params: { limit: imagesOnPage, page: currentPage, name: artistName },
+      params: {
+        limit: imagesOnPage,
+        page: currentPage,
+        name: artistName,
+        sortName: option,
+      },
     });
     return response.data;
   } catch (error) {
