@@ -111,7 +111,23 @@ searchFormElem.addEventListener('submit', async event => {
   setCurrentPage(currentPage);
   showArtistsOnPage(currentPage);
   searchFormElem.reset();
+
+  clickOnSearchBtn();
 });
+
+// click on search btn to hide search panel
+function clickOnSearchBtn() {
+  const isSortingOpen = sortingOptionsElem.classList.contains('is-open');
+
+  if (isSortingOpen) {
+    sortingOptionsElem.classList.toggle('is-open');
+    document.querySelector('.sorting-wrap').classList.toggle('is-open');
+  }
+
+  if (window.innerWidth < 1440) {
+    overflowBoxElem.classList.remove('is-open');
+  }
+}
 
 //--------------- SELECTED OPTIONS -----------------------
 function getSelectedSortOption() {
