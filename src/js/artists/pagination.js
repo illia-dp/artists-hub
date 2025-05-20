@@ -73,10 +73,16 @@ function createArrow(direction) {
       : '/artists-hub/assets/sprite-c2qr3u0C.svg#icon-right-arrow-alt';
 
   btn.innerHTML = `
-    <svg class="pagination-icon" width="24" height="24">
-      <use href="${iconId}"></use>
-    </svg>
-  `;
+      <svg class="pagination-icon" width="24" height="24" aria-hidden="true">
+        <use href="${iconId}"></use>
+      </svg>
+    `;
+
+  btn.setAttribute(
+    'aria-label',
+    direction === 'prev' ? 'Previous page' : 'Next page'
+  );
+
   btn.disabled =
     (direction === 'prev' && currentPage === 1) ||
     (direction === 'next' && currentPage === totalPages);
