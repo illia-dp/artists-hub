@@ -35,7 +35,6 @@
   align-items: center;
   justify-content: center;
   z-index: 1000;
-  padding: 64px 16px;
 }
 
 .backdrop.is-visible {
@@ -44,7 +43,9 @@
 }
 
 .modal {
-  max-height: 100%;
+  max-height: calc(100% - 64px);
+  max-width: 288px;
+  margin: 0 auto;
   background: rgba(0, 0, 0, 0.25);
   overflow-y: auto;
   scrollbar-width: none;
@@ -56,8 +57,6 @@
   color: var(--color-white);
   padding: 52px 8px;
   border-radius: 16px;
-  max-width: 288px;
-  max-height: 100vh;
   overflow-y: auto;
   scrollbar-width: none;
 }
@@ -118,8 +117,8 @@
   display: -webkit-box;
   -webkit-line-clamp: 11;
   -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  overflow-y: auto;
+  scrollbar-width: none;
 }
 
 .art-modal-geners {
@@ -139,12 +138,6 @@
   line-height: 1.5;
   text-align: center;
 }
-
-/* .art-modal-albums {
-  max-height: 1000px;
-  overflow-y: auto;
-  scrollbar-width: none;
-} */
 
 .art-modal-albums-title {
   font-weight: 700;
@@ -211,6 +204,7 @@
 
 .art-modal-albums-card-track {
   width: 113px;
+  align-self: center;
 }
 
 .art-modal-albums-card-duration {
@@ -221,17 +215,18 @@
 .art-modal-albums-card-link {
   width: 40px;
   text-align: end;
+  transform: translateY(5%);
 }
 
 /* Styles for Tablet devices */
 @media screen and (min-width: 768px) {
-  .backdrop {
-    padding: 64px 32px;
+
+  .modal {
+    max-width: 704px;
   }
 
   .art-modal {
     padding: 64px 24px;
-    max-width: 704px;
   }
 
   .modal-close-btn {
@@ -327,13 +322,13 @@
 /* Styles for Desktop devices */
 
 @media screen and (min-width: 1440px) {
-  .backdrop {
-    padding: 64px;
+
+  .modal {
+    max-width: 1312px;
   }
 
   .art-modal {
     padding: 64px;
-    max-width: 1312px;
   }
 
   .modal-close-btn {
