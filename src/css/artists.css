@@ -231,11 +231,7 @@
   flex-wrap: wrap;
   justify-content: center;
   row-gap: 64px;
-<<<<<<< HEAD
-  margin-bottom: 64px;
-=======
   margin-bottom: 32px;
->>>>>>> main
 }
 .artists-box-img {
   border-radius: 16px;
