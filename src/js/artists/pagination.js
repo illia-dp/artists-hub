@@ -98,7 +98,7 @@ function getVisiblePages(current, total, isMobile) {
     for (let i = 1; i <= total; i++) pages.push(i);
     return pages;
   }
-
+  // Mobile
   if (isMobile) {
     const page2 = current + 2;
     const page6 = current + 6;
@@ -119,7 +119,7 @@ function getVisiblePages(current, total, isMobile) {
       pages.push(page6);
     }
   } else {
-    // 💻 ПК/Планшет шаблон: ← current, current+1, current+2, ..., current+6 →
+    // PC
     pages.push(current);
 
     if (current + 1 <= total) pages.push(current + 1);

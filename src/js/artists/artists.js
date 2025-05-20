@@ -76,26 +76,6 @@ async function showArtistsOnPage(pageFromPagination) {
 handleResponsiveView();
 showArtistsOnPage();
 
-//-------------------  LOAD MORE -----------------------------
-
-// btnLoadMoreElem.addEventListener('click', async () => {
-//   if (currentPage === maxPage) {
-//     hideLoadMoreButton();
-//     return;
-//   }
-
-//   hideLoadMoreButton();
-//   showLoader();
-
-//   const page = getCurrentPage();
-//   setCurrentPage(page + 1);
-//   currentPage += 1;
-
-//   await showArtistsOnPage();
-//   hideLoader();
-//   scrollWin(0, heightScroll); //Scroll down
-// });
-
 //-------------------SEARCH BY NAME--------------------------
 searchFormElem.addEventListener('submit', async event => {
   event.preventDefault();
