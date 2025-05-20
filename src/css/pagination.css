@@ -1,36 +1,36 @@
 .tui-pagination {
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 4px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
 }
 
 .tui-pagination .tui-page-btn {
-    font-family: var(--font-family);
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 1.5;
-    color: var(--color-white);
-    border: none;
-    border-radius: 12px;
-    padding: 10px 21px;
-    width: 59px;
-    height: 47px;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--color-white);
+  border: none;
+  border-radius: 12px;
+  padding: 10px 21px;
+  width: 56px;
+  height: 47px;
 
-    transition: background-color var(--animation);
+  transition: background-color var(--animation);
 }
 
 .tui-pagination .tui-ico-ellip {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 16px;
-    font-family: var(--font-family);
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 1.5;
-    color: var(--color-white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 16px;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--color-white);
 }
 
 .tui-pagination .tui-ico-ellip,
@@ -38,32 +38,37 @@
 .tui-pagination .tui-ico-last,
 .tui-pagination .tui-ico-next,
 .tui-pagination .tui-ico-prev {
-    background: none;
+  background: none;
 }
 
 .tui-pagination .tui-next,
 .tui-pagination .tui-prev {
-    margin: 0;
-    padding: 12px;
+  margin: 0;
+  padding: 12px;
 }
-
 
 .tui-pagination .tui-is-selected,
 .tui-pagination strong {
-    border: none;
+  border: none;
 }
 
 .tui-pagination .tui-first-child.tui-is-selected {
-    border-left: none;
+  border-left: none;
 }
 
 .tui-pagination .tui-first-child.tui-is-selected,
 .tui-pagination .tui-page-btn:hover,
 .tui-pagination .tui-is-selected {
-    background-color: var(--opacity-white-10);
+  background-color: var(--opacity-white-10);
 }
 
 .tui-first,
 .tui-last {
-    display: none !important;
+  display: none !important;
+}
+
+@media screen and (min-width: 768px) {
+  .tui-pagination .tui-page-btn {
+    width: 59px;
+  }
 }

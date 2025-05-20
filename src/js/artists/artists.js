@@ -26,8 +26,6 @@ let data;
 
 // the main function for getting and rendering artists
 async function showArtistsOnPage(pageFromPagination) {
-  let data;
-
   try {
     showLoader();
 
@@ -63,8 +61,9 @@ async function showArtistsOnPage(pageFromPagination) {
 
     createArtistsMarkup(data.artists);
 
-    // ----------Scroll----------
+    // !!----------Scroll----------!!
     // scrollToArtistsList();
+
     if (!pageFromPagination) {
       initPagination(totalArtists, limit, currentPage, showArtistsOnPage);
     }
@@ -82,11 +81,8 @@ showArtistsOnPage();
 
 // btnLoadMoreElem.addEventListener('click', async () => {
 //   if (currentPage === maxPage) {
-//     console.log('ok');
 //     hideLoadMoreButton();
 //     return;
-//   } else {
-//     showLoadMoreButton();
 //   }
 
 //   hideLoadMoreButton();
@@ -98,7 +94,7 @@ showArtistsOnPage();
 
 //   await showArtistsOnPage();
 //   hideLoader();
-//   scrollWin(0, heightScroll);
+//   scrollWin(0, heightScroll); //Scroll down
 // });
 
 //-------------------SEARCH BY NAME--------------------------
@@ -156,7 +152,7 @@ function toggleClass(element, jsClass) {
 window.addEventListener('resize', handleResponsiveView);
 
 function handleResponsiveView() {
-  if (window.innerWidth === 1440) {
+  if (window.innerWidth >= 1440) {
     overflowBoxElem.classList.add('is-open');
   } else {
     overflowBoxElem.classList.remove('is-open');
