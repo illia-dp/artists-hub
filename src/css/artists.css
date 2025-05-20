@@ -348,9 +348,13 @@
 }
 
 /* -------------loader----------- */
+.artists-loader-container {
+  position: relative;
+  width: 100%;
+}
 
 .artists-loader {
-  position: fixed;
+  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
