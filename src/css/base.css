@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'IBMPlexSans';
-    src: url(../fonts/IBMPlexSans-VariableFont_wdth\,wght.woff2) format('woff2');
+    src: url(../fonts/IBMPlexSans-VariableFont.woff2) format('woff2');
     font-weight: 100 900;
     font-style: normal;
     font-display: swap;
@@ -8,7 +8,7 @@
 
 @font-face {
     font-family: 'Epilogue';
-    src: url(../fonts/Epilogue-VariableFont_wght.woff2) format('woff2');
+    src: url(../fonts/Epilogue-VariableFont.woff2) format('woff2');
     font-weight: 100 900;
     font-style: normal;
     font-display: swap;
@@ -16,7 +16,7 @@
 
 @font-face {
     font-family: 'Roboto';
-    src: url(../fonts/Roboto-VariableFont_wdth\,wght.woff2) format('woff2');
+    src: url(../fonts/Roboto-VariableFont.woff2) format('woff2');
     font-weight: 100 900;
     font-style: normal;
     font-display: swap;
@@ -81,10 +81,7 @@
 
     --animation: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
-}
-
-:root {
-    --font-family: "IBM Plex Sans", sans-serif;
+    --font-family: "IBMPlexSans", sans-serif;
     --second-family: "Epilogue", sans-serif;
     --third-family: "Roboto", sans-serif; 
 }
@@ -96,6 +93,7 @@ html {
 
 body {
     font-family: var(--font-family);
+    background-color: var(--color-scheme-1-background);
 }
 
 .visually-hidden {
