@@ -22,7 +22,7 @@ export function createArtist(arr, genres) {
   const markup = `
             <button class="modal-close-btn" type="button">
               <svg class="close-icon" width="32" height="32">
-                <use href="./img/sprite.svg#icon-Close"></use>
+                <use href="/artists-hub/assets/sprite-c2qr3u0C"></use>
               </svg>
             </button>
             <h3 class="art-modal-name" tabindex="0">${strArtist}</h3>
