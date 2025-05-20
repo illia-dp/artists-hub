@@ -100,7 +100,6 @@ showArtistsOnPage();
 //-------------------SEARCH BY NAME--------------------------
 searchFormElem.addEventListener('submit', async event => {
   event.preventDefault();
-  hideLoadMoreButton();
   setCurrentPage(1);
   currentPage = 1;
 
