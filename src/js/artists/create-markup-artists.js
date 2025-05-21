@@ -68,7 +68,7 @@ export function hideLoader() {
   loaderElem.classList.add('hidden');
 }
 export function scrollToArtistsList() {
-  const artistsListElem = document.querySelector('.artists');
+  const artistsListElem = document.querySelector('.artists-filter');
   if (artistsListElem) {
     artistsListElem.scrollIntoView({
       behavior: 'smooth',

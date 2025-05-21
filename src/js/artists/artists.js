@@ -62,7 +62,7 @@ async function showArtistsOnPage(pageFromPagination) {
     createArtistsMarkup(data.artists);
 
     // !!----------Scroll----------!!
-    // scrollToArtistsList();
+    scrollToArtistsList();
 
     resetCustomPagination();
 
