@@ -120,46 +120,87 @@ function createArrow(direction) {
 function getVisiblePages(current, total, isMobile) {
   const pages = [];
 
-  if (total <= 5) {
+  if (total <= 3) {
     for (let i = 1; i <= total; i++) pages.push(i);
     return pages;
   }
-  // Mobile
+
   if (isMobile) {
-    pages.push(current);
-    const page2 = current + 2;
-    const page6 = current + 6;
-
-    if (page2 <= total) {
-      if (page2 - current > 1) {
-        pages.push('...');
-      }
-      pages.push(page2);
-    }
-
-    if (page6 <= total) {
-      if (page2 >= total || page6 - page2 > 1) {
-        pages.push('...');
-      }
-      pages.push(page6);
+    if (total === 4) {
+      pages.push(current === 1 || current === 2 ? current : current - 2);
+      pages.push('...');
+      pages.push(
+        current === 1
+          ? current + 2
+          : current === 2
+          ? current + 1
+          : current === 3
+          ? current
+          : current - 1
+      );
+      pages.push(
+        current === 1
+          ? current + 3
+          : current === 2
+          ? current + 2
+          : current === 3
+          ? current + 1
+          : current
+      );
+    } else if (total === 5) {
+      pages.push(current === 1 || current === 2 ? current : current - 2);
+      pages.push('...');
+      pages.push(
+        current === 1
+          ? current + 2
+          : current === 2
+          ? current + 1
+          : current === 3
+          ? current
+          : current === 4
+          ? current
+          : current - 1
+      );
+      pages.push('...');
+      pages.push(
+        current === 1
+          ? current + 4
+          : current === 2
+          ? current + 3
+          : current === 3
+          ? current + 2
+          : current === 4
+          ? current + 1
+          : current
+      );
+    } else {
+      // Mobile
+      pages.push(current === 1 || current === 2 ? current : current - 2);
+      if (current + 2 <= total) pages.push('...');
+      pages.push(
+        current === 1 ? current + 2 : current === 2 ? current + 1 : current
+      );
+      if (current + 6 <= total) pages.push('...');
+      pages.push(
+        current === 1 ? current + 6 : current === 2 ? current + 5 : current + 4
+      );
     }
     return pages;
   } else {
     // PC
-    pages.push(current);
-
-    if (current + 1 <= total) pages.push(current + 1);
-    if (current + 2 <= total) pages.push(current + 2);
-
-    if (current + 3 < current + 6 && current + 3 < total) {
-      pages.push('...');
-    }
-
-    if (current + 6 <= total) {
-      pages.push(current + 6);
-    } else if (current + 3 <= total) {
-      pages.push(total);
-    }
+    pages.push(
+      current === 1 ? current : current === 2 ? current - 1 : current - 2
+    );
+    pages.push(
+      current === 1 ? current + 1 : current === 2 ? current : current - 1
+    );
+    pages.push(
+      current === 1 ? current + 2 : current === 2 ? current + 1 : current
+    );
+    if (current + 3 <= total) pages.push('...');
+    pages.push(
+      current === 1 ? current + 6 : current === 2 ? current + 5 : current + 4
+    );
   }
 
   return [...new Set(pages)]
