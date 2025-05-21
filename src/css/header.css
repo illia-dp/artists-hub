@@ -5,7 +5,6 @@
   top: 0;
   width: 100%;
   z-index: 1000;
-  padding: 12px 0;
 }
 
 main {
@@ -49,10 +48,6 @@ main {
   .page-header .container {
     padding-left: 64px;
     padding-right: 64px;
-  }
-
-  .page-header {
-    padding: 8px 0;
   }
 
   .logo-icon {
@@ -101,10 +96,6 @@ main {
 }
 /* Desktop styles */
 @media screen and (min-width: 1440px) {
-  .page-header {
-    padding: 8px 0;
-  }
-
   main {
     margin-top: 113px;
   }
