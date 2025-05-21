@@ -120,7 +120,7 @@ function createArrow(direction) {
 function getVisiblePages(current, total, isMobile) {
   const pages = [];
 
-  if (total <= 3) {
+  if (total <= 5) {
     for (let i = 1; i <= total; i++) pages.push(i);
     return pages;
   }
