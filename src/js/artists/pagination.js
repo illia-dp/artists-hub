@@ -120,12 +120,11 @@ function createArrow(direction) {
 function getVisiblePages(current, total, isMobile) {
   const pages = [];
 
-  if (total <= 5) {
-    for (let i = 1; i <= total; i++) pages.push(i);
-    return pages;
-  }
-
   if (isMobile) {
+    if (total <= 3) {
+      for (let i = 1; i <= total; i++) pages.push(i);
+      return pages;
+    }
     if (total === 4) {
       pages.push(current === 1 || current === 2 ? current : current - 2);
       pages.push('...');
@@ -186,7 +185,14 @@ function getVisiblePages(current, total, isMobile) {
       );
     }
     return pages;
-  } else {
+  }
+
+  if (total <= 5) {
+    for (let i = 1; i <= total; i++) pages.push(i);
+    return pages;
+  }
+
+  {
     // PC
     pages.push(
       current === 1 ? current : current === 2 ? current - 1 : current - 2
