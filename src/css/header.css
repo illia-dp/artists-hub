@@ -1,9 +1,23 @@
 /* Mobile styles */
+.page-header {
+  background-color: var(--color-scheme-1-background);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 12px 0;
+}
+
+main {
+  margin-top: 89px;
+}
 
 .page-header .container {
   display: flex;
   align-items: center;
   background-color: var(--color-scheme-1-background);
+
+  padding: 0 6px;
 }
 
 .logo-icon {
@@ -35,6 +49,10 @@
   .page-header .container {
     padding-left: 64px;
     padding-right: 64px;
+  }
+
+  .page-header {
+    padding: 8px 0;
   }
 
   .logo-icon {
@@ -76,7 +94,18 @@
     color: var(--color-neutral-lighter);
     transition: var(--animation);
   }
+
+  main {
+    margin-top: 105px;
+  }
 }
 /* Desktop styles */
 @media screen and (min-width: 1440px) {
+  .page-header {
+    padding: 8px 0;
+  }
+
+  main {
+    margin-top: 113px;
+  }
 }
