@@ -3,7 +3,6 @@ import {
   hideLoader,
   showLoader,
   artistsList,
-  scrollToArtistsList,
 } from './create-markup-artists';
 import { getArtists, setCurrentPage } from './artists-api';
 import { initCustomPagination, resetCustomPagination } from './pagination';
@@ -61,9 +60,6 @@ async function showArtistsOnPage(pageFromPagination) {
 
     createArtistsMarkup(data.artists);
 
-    // !!----------Scroll----------!!
-    scrollToArtistsList();
-
     resetCustomPagination();
 
     if (totalArtists > limit) {
@@ -81,15 +77,6 @@ async function showArtistsOnPage(pageFromPagination) {
 // START PAGE LOADING
 handleResponsiveView();
 showArtistsOnPage();
-
-// ---------------------Lazy loading------------------------
-// window.addEventListener('DOMContentLoaded', () => {
-//   handleResponsiveView();
-
-//   requestIdleCallback(() => {
-//     showArtistsOnPage();
-//   });
-// });
 
 //-------------------SEARCH BY NAME--------------------------
 searchFormElem.addEventListener('submit', async event => {
