@@ -172,6 +172,40 @@ function getVisiblePages(current, total, isMobile) {
           ? current + 1
           : current
       );
+    } else if (total === 6) {
+      pages.push(
+        current === 1 || current === 2
+          ? current
+          : current === 5
+          ? current - 4
+          : current === 6
+          ? current - 5
+          : current - 2
+      );
+      pages.push('...');
+      pages.push(
+        current === 1
+          ? current + 2
+          : current === 2
+          ? current + 1
+          : current === 3 || current === 4
+          ? current
+          : current === 5
+          ? current - 1
+          : current - 2
+      );
+      pages.push('...');
+      pages.push(
+        current === 1
+          ? current + 5
+          : current === 2
+          ? current + 4
+          : current === 3
+          ? current + 3
+          : current === 4
+          ? current + 2
+          : current
+      );
     } else {
       // Mobile
       pages.push(current === 1 || current === 2 ? current : current - 2);

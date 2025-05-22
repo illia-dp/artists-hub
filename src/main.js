@@ -1,3 +1,6 @@
+// Header
+import './js/header/header.js';
+
 // Artists
 import './js/artists/artists.js';
 
