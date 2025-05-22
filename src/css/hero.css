@@ -238,7 +238,10 @@
 .hero-column-down {
   animation: scrollDown 30s linear infinite;
 }
-
+.hero-column-up:hover,
+.hero-column-down:hover {
+  animation-play-state: paused;
+}
 @keyframes scrollUp {
   0% {
     transform: translateY(0%);
