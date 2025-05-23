@@ -1,4 +1,5 @@
 import photo from '../../img/artists/file-not-found.jpg';
+import { getGenres } from './artists-api';
 
 export const loaderElem = document.querySelector('.artists-loader');
 export const btnLoadMoreElem = document.querySelector('.js-load-more');
@@ -66,4 +67,34 @@ export function showLoader() {
 }
 export function hideLoader() {
   loaderElem.classList.add('hidden');
+}
+// export function scrollToArtistsList() {
+//   const artistsListElem = document.querySelector('.artists');
+//   if (artistsListElem) {
+//     artistsListElem.scrollIntoView({
+//       behavior: 'smooth',
+//       block: 'start',
+//     });
+//   }
+// }
+
+// render genres
+export async function renderGenres() {
+  try {
+    const genres = await getGenres();
+    const genresListElem = document.querySelector('.js-artists-genre-list');
+
+    genresListElem.innerHTML = genres
+      .map(
+        ({ genre, _id }) =>
+          `<li class="artists-genre-item">
+                  <input type="radio" name="genre" id="${_id}" value="${genre}" />
+                  <label class="genre-label" for="${_id}">${genre}</label>
+            </li>
+          `
+      )
+      .join('');
+  } catch (error) {
+    console.log('error');
+  }
 }

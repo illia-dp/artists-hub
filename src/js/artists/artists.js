@@ -3,6 +3,7 @@ import {
   hideLoader,
   showLoader,
   artistsList,
+  renderGenres,
 } from './create-markup-artists';
 import { getArtists, setCurrentPage } from './artists-api';
 import { initCustomPagination, resetCustomPagination } from './pagination';
@@ -14,6 +15,9 @@ const overflowBoxElem = document.querySelector('.js-overflow-box');
 const sortingOptionsElem = document.querySelector('.sorting-options-wrap');
 const paginationContainer = document.getElementById('custom-pagination');
 const searchFormElem = document.querySelector('.js-search-form');
+const btnOpenGenres = document.querySelector('.js-open-genres-list');
+const genresTitleWrapper = document.querySelector('.genres-title-wrapper');
+const genreListElem = document.querySelector('.artists-genre-list');
 
 let totalArtists = 0;
 let limit = 1;
@@ -21,9 +25,11 @@ let maxPage = 1;
 let inputData = '';
 let currentPage = 1;
 let currentOption = '';
+let currentGenre = '';
+
 let data;
 
-// the main function for getting and rendering artists
+//! THE MAIN FUNCTION FOR GETTING AND RENDERING ARTISTS
 async function showArtistsOnPage(pageFromPagination) {
   try {
     showLoader();
@@ -33,22 +39,22 @@ async function showArtistsOnPage(pageFromPagination) {
       setCurrentPage(currentPage);
     }
 
-    if (!inputData) {
-      data = await getArtists(); // all
-    } else if (!currentOption) {
-      data = await getArtists(inputData); // without sorting
-    } else {
-      data = await getArtists(inputData, currentOption); // with sorting
-    }
+    //query parameters
+    const params = {
+      name: inputData || undefined,
+      sortName: currentOption || undefined,
+      genre: currentGenre || undefined,
+    };
 
-    if (data.artists.length === 0) {
+    data = await getArtists(params.name, params.sortName, params.genre);
+
+    if (!data.artists.length) {
       searchFormElem.reset();
       iziToast.warning({
         message: 'Sorry, but no artist was found for your query',
         position: 'center',
       });
-      inputData = '';
-      data = await getArtists();
+      return;
     }
 
     //for pagination
@@ -57,26 +63,32 @@ async function showArtistsOnPage(pageFromPagination) {
     maxPage = Math.ceil(totalArtists / limit);
 
     artistsList.innerHTML = '';
-
     createArtistsMarkup(data.artists);
+
+    // !!----------Scroll----------!!
 
     resetCustomPagination();
 
+    paginationContainer.style.display = totalArtists > limit ? 'flex' : 'none';
     if (totalArtists > limit) {
-      paginationContainer.style.display = 'flex';
       initCustomPagination(totalArtists, limit, currentPage, showArtistsOnPage);
-    } else {
-      paginationContainer.style.display = 'none';
     }
   } catch (error) {
-    throw new Error();
+    console.error(error);
+    iziToast.error({
+      message: 'Something went wrong. Please try again later.',
+      position: 'center',
+    });
   } finally {
     hideLoader();
   }
 }
-// START PAGE LOADING
-handleResponsiveView();
-showArtistsOnPage();
+
+//todo START PAGE LOADING
+window.addEventListener('DOMContentLoaded', () => {
+  handleResponsiveView();
+  requestIdleCallback(() => showArtistsOnPage());
+});
 
 //-------------------SEARCH BY NAME--------------------------
 searchFormElem.addEventListener('submit', async event => {
@@ -84,31 +96,40 @@ searchFormElem.addEventListener('submit', async event => {
   setCurrentPage(1);
   currentPage = 1;
 
-  currentOption = getSelectedSortOption();
-
   inputData = event.target.elements.search.value.trim().toLowerCase();
-  if (!inputData) {
+  currentOption = getSelectedSortOption();
+  currentGenre = getSelectedGenre();
+
+  if (!inputData && !currentOption && !currentGenre) {
     iziToast.warning({
       message: 'The input field is empty. Try again',
       position: 'center',
     });
     return;
   }
+
   artistsList.innerHTML = '';
-  setCurrentPage(currentPage);
   showArtistsOnPage(currentPage);
   searchFormElem.reset();
-
   clickOnSearchBtn();
 });
 
 // click on search btn to hide search panel
 function clickOnSearchBtn() {
   const isSortingOpen = sortingOptionsElem.classList.contains('is-open');
+  const isGenresListOpen = genreListElem.classList.contains('is-open');
+
+  btnOpenGenres.classList.remove('up-btn');
+  btnOpenSorting.classList.remove('up-btn');
 
   if (isSortingOpen) {
-    sortingOptionsElem.classList.toggle('is-open');
-    document.querySelector('.sorting-wrap').classList.toggle('is-open');
+    sortingOptionsElem.classList.remove('is-open');
+    document.querySelector('.sorting-wrap').classList.remove('is-open');
+  }
+
+  if (isGenresListOpen) {
+    genreListElem.classList.remove('is-open');
+    genresTitleWrapper.classList.remove('border-bottom');
   }
 
   if (window.innerWidth < 1440) {
@@ -118,38 +139,48 @@ function clickOnSearchBtn() {
 
 //--------------- SELECTED OPTIONS -----------------------
 function getSelectedSortOption() {
-  const selectedOption = document.querySelector('input[name="sort"]:checked');
-  return selectedOption?.value || '';
+  return document.querySelector('input[name="sort"]:checked')?.value || '';
 }
 
-// OPEN FILTER
+function getSelectedGenre() {
+  return document.querySelector('input[name="genre"]:checked')?.value || '';
+}
 
+//open filter
 btnOpenFilter.addEventListener('click', () => {
   toggleClass(btnOpenFilter, 'up-btn');
   overflowBoxElem.classList.toggle('is-open');
 });
 
-// OPEN SORTING
+//open sorting
 btnOpenSorting.addEventListener('click', () => {
   toggleClass(btnOpenSorting, 'up-btn');
   sortingOptionsElem.classList.toggle('is-open');
   document.querySelector('.sorting-wrap').classList.toggle('is-open');
 });
 
-// CHANGE CLASS
+// open genres
+btnOpenGenres.addEventListener('click', async () => {
+  btnOpenGenres.classList.toggle('up-btn');
+  toggleClass(genreListElem, 'is-open');
 
+  genresTitleWrapper.classList.toggle(
+    'border-bottom',
+    btnOpenGenres.classList.contains('up-btn')
+  );
+
+  if (btnOpenGenres.classList.contains('up-btn')) {
+    await renderGenres();
+  }
+});
+
+// change class
 function toggleClass(element, jsClass) {
   element.classList.toggle(jsClass);
 }
 
-//---------------------------------------------------------------
-
 window.addEventListener('resize', handleResponsiveView);
 
 function handleResponsiveView() {
-  if (window.innerWidth >= 1440) {
-    overflowBoxElem.classList.add('is-open');
-  } else {
-    overflowBoxElem.classList.remove('is-open');
-  }
+  overflowBoxElem.classList.toggle('is-open', window.innerWidth >= 1440);
 }
