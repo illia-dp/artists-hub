@@ -232,11 +232,11 @@
     will-change: transform;
   }
 .hero-column-up {
-  animation: scrollUp 30s linear infinite;
+  animation: scrollUp 30s linear infinite alternate;
 }
 
 .hero-column-down {
-  animation: scrollDown 30s linear infinite;
+  animation: scrollDownShifted 30s linear infinite alternate;
 }
 .hero-column-up:hover,
 .hero-column-down:hover {
@@ -251,7 +251,7 @@
   }
 }
 
-@keyframes scrollDown {
+@keyframes scrollDownShifted {
   0% {
     transform: translateY(-100%);
   }
